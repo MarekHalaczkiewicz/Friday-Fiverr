@@ -17,7 +17,7 @@ function Modal({ setModalOpen, project }) {
           <div className="media">
             <img className="img" src={media} alt="Project" />
           </div>
-          <div className="body">
+          <div className="bodyLeft">
             <p>{body}</p>
             <p>
               <strong>Location: </strong>
@@ -42,6 +42,7 @@ function Modal({ setModalOpen, project }) {
         <div className="modalContainerRight">
           <div className="titleCloseBtn">
             <button
+              className="X"
               onClick={() => {
                 setModalOpen(false);
               }}
@@ -53,8 +54,8 @@ function Modal({ setModalOpen, project }) {
             <div className="title">
               <h1>The way you can help</h1>
             </div>
-            <div className="body">
-              <h3>
+            <div className="bodyRight">
+              <p>
                 If you want to help your neighborhood community, there are other
                 ways than a donation. If your skillsets are matching the ones
                 needed for this project you can help by showing up and put them
@@ -63,16 +64,16 @@ function Modal({ setModalOpen, project }) {
                 visible for people looking for freelancers, or even get more
                 stars! Just click on "Take Part" button, and fill out the help
                 form
-              </h3>
+              </p>
               <p>
                 <strong>Goal: </strong>
                 {goal}€
               </p>
               <p>
                 <strong>Skills needed: </strong>
-                {/* {skills.map((skill) => {
-                  return { skill };
-                })} */}
+                {skills.map((skill) => {
+                  return skill;
+                })}
               </p>
               <p>
                 <strong>tags: </strong>
