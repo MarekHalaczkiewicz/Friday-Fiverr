@@ -3,6 +3,7 @@ const db = require('../_helpers/db-config');
 const Project = db.Project;
 
 module.exports = {
+  findAndUpdate,
   getAll,
   getById,
   create,
@@ -14,25 +15,28 @@ async function getAll() {
   return await Project.find();
 }
 
+async function findAndUpdate(projectId, projectParam) {
+  const { userId, amount } = projectParam;
+  const updatedProject = await Project.findOneAndUpdate(
+    { _id: projectId },
+    { $push: { contributors: { userId, amount } } },
+    // { title: 'King in the North' },
+    // If `new` isn't true, `findOneAndUpdate()` will return the
+    // document as it was _before_ it was updated.
+    { new: true }
+  );
+  return await updatedProject;
+}
+
 async function getById(id) {
   return await Project.findById(id);
 }
 
 async function create(projectParam) {
-  // validate
-  if (await Project.findOne({ username: projectParam.username })) {
-    throw 'Username "' + projectParam.username + '" is already taken';
-  }
+  const project = new Project(projectParam);
 
-  const user = new User(projectParam);
-
-  // hash password
-  if (projectParam.password) {
-    user.hash = bcrypt.hashSync(projectParam.password, 10);
-  }
-
-  // save user
-  await user.save();
+  // save project
+  await project.save();
 }
 
 async function update(id, projectParam) {
@@ -59,5 +63,5 @@ async function update(id, projectParam) {
 }
 
 async function _delete(id) {
-  await User.findByIdAndRemove(id);
+  await Project.findByIdAndRemove(id);
 }

@@ -5,8 +5,9 @@ const projectRouter = express.Router();
 // routes
 projectRouter.post('/register', projectController.register);
 projectRouter.get('/', projectController.getAll);
-projectRouter.get('/current', projectController.getCurrent);
+// projectRouter.get('/current', projectController.getCurrent);
 projectRouter.get('/:id', projectController.getById);
+projectRouter.post('/:id/contribute', projectController.findAndUpdate);
 projectRouter.put('/:id', projectController.update);
 projectRouter.delete('/:id', projectController._delete);
 

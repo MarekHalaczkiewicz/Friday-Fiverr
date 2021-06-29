@@ -1,84 +1,72 @@
-const { ObjectID } = require('mongodb');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-  id: {
-    type: ObjectID
-  },
   title: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   media: {
     type: String,
-    required: true
+    required: true,
   },
   goal: {
     type: Number,
-    required: true
+    required: true,
   },
-    contributors: [
-        {
-            userId: {
-              type: mongoose.Schema.Types.ObjectId,
-              ref:'User', 
-              unique: true, 
-              required: true
-            }
-        },
-        {
-            amount: {
-              type: Number,
-              unique: true, 
-              required: true
-            }
-        }
-    ],
-  raised: {
-    type: Number
-  },
-  skills: {
-    type: String,
-    required: true
-  },
-  location: [
+  contributors: [
     {
-     altitude: {
-      type: String
-     },
-     longitude: {
-      type: String
-     }
-  }
+      userId: {
+        type: String,
+        required: true,
+      },
+      amount: {
+        type: Number,
+        required: true,
+      },
+    },
   ],
-  organization: {
-    organizationName: {
+  skills: [
+    {
       type: String,
-      required: true
+      required: true,
+    },
+  ],
+  location: {
+    latitude: {
+      type: String,
+    },
+    longitude: {
+      type: String,
+    },
+  },
+  organization: {
+    name: {
+      type: String,
+      required: true,
     },
     contact: {
       type: String,
     },
     account: {
-      type: String
-    }
+      type: String,
+    },
   },
 
-    createdDate: { type: Date, default: Date.now }
+  createdDate: { type: Date, default: Date.now },
 });
 
-schema.set('toJSON', {
-  virtuals: true,
-  versionKey: false,
-  transform: function (doc, ret) {
-    delete ret._id;
-    delete ret.hash;
-  },
-});
+// schema.set('toJSON', {
+//   virtuals: true,
+//   versionKey: false,
+//   transform: function (doc, ret) {
+//     delete ret._id;
+//     delete ret.hash;
+//   },
+// });
 
 module.exports = mongoose.model('Project', schema);
