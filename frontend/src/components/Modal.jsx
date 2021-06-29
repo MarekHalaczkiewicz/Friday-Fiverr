@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import "./Modal.css";
+import './Modal.css';
 import { useHistory } from 'react-router-dom';
-
 
 function Modal({ setModalOpen, project }) {
   const { title, media, body, goal, skills, tags, location, organization } =
     project;
-    const history = useHistory();
+  const history = useHistory();
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -81,9 +80,15 @@ function Modal({ setModalOpen, project }) {
               </p>
             </div>
             <div className="footerRight">
-              <button id="donation-btn">Donation</button>
-              <button id="join-btn">Take part</button>
-              
+              <button
+                id="donation-btn"
+                onClick={() => history.push('/subscribe')}
+              >
+                Donation
+              </button>
+              <button id="join-btn" onClick={() => history.push('/donate')}>
+                Take part
+              </button>
             </div>
           </div>
         </div>
