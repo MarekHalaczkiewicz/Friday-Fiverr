@@ -7,6 +7,7 @@ import Modal from "./components/Modal";
 import CarouselContainer from "./components/CarouselContainer.js";
 import Subscription from "./components/Subscription";
 import Navbar from "./components/Navbar";
+import Donate from "./components/Donate";
 
 const projects = [
   {
@@ -98,6 +99,9 @@ function App() {
         </Route>
         <Route path="/subscribe">
           <Subscription />
+        </Route>
+        <Route path="/donate">
+          <Donate />
         </Route>
       </Switch>
     </UserContext.Provider>
