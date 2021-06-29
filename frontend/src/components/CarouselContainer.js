@@ -1,5 +1,6 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
 import image1 from "./images/image1.jpg";
 import image2 from "./images/image2.jpg";
@@ -24,6 +25,9 @@ const CarouselContainer = () => {
         <Carousel.Caption style={containerStyle}>
           <h3>Find your local community project</h3>
           <p>Join today and improve your local community</p>
+          <Button variant="outline-primary" size="lg">
+            Create Project
+          </Button>{" "}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item style={containerImage}>
