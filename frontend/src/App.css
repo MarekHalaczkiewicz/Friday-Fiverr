@@ -1,0 +1,9 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+body {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  min-height: 100vh;
+}
