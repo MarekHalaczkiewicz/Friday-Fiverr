@@ -1,10 +1,13 @@
-import './App.css';
-import { Switch } from 'react-router-dom';
+import "./App.css";
+import { Switch } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <Switch>
-      <div></div>
+      <div>
+        <Navbar />
+      </div>
     </Switch>
   );
 }
