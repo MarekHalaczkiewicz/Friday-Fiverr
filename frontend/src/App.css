@@ -1,9 +1,8 @@
 * {
   font-family: "Roboto", sans-serif;
 }
-body {
-  align-items: center;
-  justify-content: center;
+.App {
   display: flex;
-  min-height: 100vh;
+  flex-direction: column;
+  width: 100%;
 }

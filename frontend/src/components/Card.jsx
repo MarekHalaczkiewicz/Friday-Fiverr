@@ -1,7 +1,9 @@
-import React from 'react';
-import './card.css';
+import React, { useState } from "react";
+import "./card.css";
+import Modal from "./Modal";
 
-function Card({ title, imageUrl, body }) {
+function Card({ setOpenModal, title, imageUrl, body }) {
+
   return (
     <div className="card-container">
       <div className="image-container">
@@ -16,14 +18,16 @@ function Card({ title, imageUrl, body }) {
         </div>
       </div>
       <div className="donation-progress">
-        <div className="box">
-          <h2 className="text">Donation progress</h2>
-          <div className="percent">
+        <div class="box">
+          <h2 class="text">Donation progress</h2>
+          <div class="percent">
+
             <svg>
               <circle cx="70" cy="70" r="70"></circle>
               <circle cx="70" cy="70" r="70"></circle>
             </svg>
-            <div className="num">
+            <div class="num">
+
               <h2>
                 80<span>%</span>
               </h2>
@@ -32,8 +36,14 @@ function Card({ title, imageUrl, body }) {
         </div>
       </div>
       <div className="button-container">
-        <button className="button">View more</button>
-        <button className="button">Donate</button>
+        <button
+          className="button"
+          onClick={() => {
+            setOpenModal(true);
+          }}
+        >
+          <a>View more</a>
+        </button>
       </div>
     </div>
   );

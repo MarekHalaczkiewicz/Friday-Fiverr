@@ -3,6 +3,7 @@ import { Switch } from 'react-router-dom';
 import { useState } from 'react';
 import UserContext from './UserContext';
 import Card from './components/Card';
+import Modal from "./components/Modal";
 
 const projects = [
   {
@@ -21,6 +22,7 @@ const projects = [
 ];
 
 function App() {
+    const [modalOpen, setModalOpen] = useState(true);
   const [projectList, setProjectList] = useState(projects);
   const [user, setUser] = useState({
     username: '',
@@ -41,6 +43,7 @@ function App() {
             />
           );
         })}
+        {modalOpen && <Modal setOpenModal={setModalOpen} />}
       </Switch>
     </UserContext.Provider>
   );
