@@ -2,24 +2,36 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(200, 200, 200);
+  opacity: 0.9;
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .modalContainer {
-  width: 500px;
-  height: 500px;
+  width: 60vw;
+  height: 50vw;
+  display: flex;
+  justify-content: row;
+  background-color: whitesmoke;
+  overflow: hidden;
+}
+
+.modalContainerLeft {
+  width: 50%;
   border-radius: 12px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
   display: flex;
   flex-direction: column;
   padding: 25px;
 }
 
-.modalContainer .title {
+.img {
+  overflow: hidden;
+  height: 20vw;
+}
+
+.modalContainerLeft .title {
   display: inline-block;
   text-align: center;
   margin-top: 10px;
@@ -37,23 +49,22 @@
   cursor: pointer;
 }
 
-.modalContainer .body {
+.modalContainerLeft .body {
   flex: 50%;
-  display: flex;
-  justify-content: center;
+  justify-content: column;
   align-items: center;
-  font-size: 1.7rem;
+  font-size: 20px;
   text-align: center;
 }
 
-.modalContainer .footer {
+.modalContainerLeft .footerLeft {
   flex: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.modalContainer .footer button {
+.modalContainerLeft .footerLeft button {
   width: 150px;
   height: 45px;
   margin: 10px;
@@ -67,4 +78,45 @@
 
 #cancelBtn {
   background-color: crimson;
+}
+.modalContainerRight {
+  width: 50%;
+  border-radius: 12px;
+  background-color: whitesmoke;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.modalContainerRight .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.modalContainerRight .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+modalContainerRight .footerRight {
+  flex: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modalContainerRight .footerRight button {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
 }
