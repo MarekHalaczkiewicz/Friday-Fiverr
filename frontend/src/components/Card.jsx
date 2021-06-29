@@ -3,7 +3,7 @@ import "./card.css";
 import Modal from "./Modal";
 import { useHistory } from "react-router-dom";
 
-function Card({ setModalOpen, title, imageUrl, body }) {
+function Card({ setModalOpen, setFocused, index, title, imageUrl, body }) {
   const history = useHistory();
   return (
     <div className="card-container">
@@ -18,27 +18,12 @@ function Card({ setModalOpen, title, imageUrl, body }) {
           <p>{body}</p>
         </div>
       </div>
-      <div className="donation-progress">
-        <div class="box">
-          {/* To fix this div */}
-          <div className="button-container">
-            <button
-              className="button"
-              onClick={() => history.push("/subscribe")}
-            >
-              <a>Subscribe</a>
-            </button>
-            <button className="button" onClick={() => history.push("/donate")}>
-              <a>Donate</a>
-            </button>
-          </div>
-          {/* End of div */}
-        </div>
-      </div>
+      <div className="donation-progress"></div>
       <div className="button-container">
         <button
           className="button"
           onClick={() => {
+            setFocused(index);
             setModalOpen(true);
           }}
         >

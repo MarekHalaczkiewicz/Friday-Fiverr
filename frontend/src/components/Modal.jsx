@@ -8,10 +8,10 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
   const history = useHistory();
   const { user } = useContext(UserContext);
   const {
-    projectId,
+    _id,
     title,
     media,
-    body,
+    description,
     goal,
     skills,
     tags,
@@ -24,18 +24,22 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const bodyReq = {
-      projectId,
-      userId: user.userId,
+      userId: user.id,
       amount,
     };
 
-    const response = await axios.post(
-      `http://localhost:8000/api/projects/${projectId}/contribute`,
-      bodyReq
-    );
-    let updatedProjectList = [...projectList];
-    updatedProjectList[index].contributions = response.data;
-    setProjectList(updatedProjectList);
+    axios
+      .post(`http://localhost:8000/api/projects/${_id}/contribute`, bodyReq)
+      .then((response) => console.log(response.data));
+    console.log(user);
+
+    // const response = await axios.post(
+    //   `http://localhost:8000/api/projects/${projectId}/contribute`,
+    //   bodyReq
+    // );
+    // let updatedProjectList = [...projectList];
+    // updatedProjectList[index].contributions = response.data;
+    // setProjectList(updatedProjectList);
   };
 
   return (
@@ -43,20 +47,20 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
       <div className="modalContainer">
         <div className="modalContainerLeft">
           <div className="title">
-            <h1>{title}</h1>
+            <h2>{title}</h2>
           </div>
           <div className="media">
             <img className="img" src={media} alt="Project" />
           </div>
           <div className="bodyLeft">
-            <p>{body}</p>
+            <p>{description}</p>
             <p>
               <strong>Location: </strong>
-              {location}
+              {/* {location} */}
             </p>
             <p>
               <strong>organization: </strong>
-              {organization}
+              {organization.name}
             </p>
           </div>
           <div className="footerLeft">
@@ -83,7 +87,7 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
           </div>
           <div className="donation">
             <div className="title">
-              <h1>The way you can help</h1>
+              <h2>The way you can help</h2>
             </div>
             <div className="bodyRight">
               <p>
@@ -106,10 +110,12 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
                   return skill;
                 })}
               </p>
-              <p>
+              {/* <p>
                 <strong>tags: </strong>
-                {tags}
-              </p>
+                {tags.map((tag) => {
+                  return tag;
+                })}
+              </p> */}
             </div>
             <form onSubmit={handleSubmit}>
               <label>
@@ -123,8 +129,15 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
               <input type="submit" value="Submit" />
             </form>
             <div className="footerRight">
-              <button id="donation-btn">Donation</button>
-              <button id="join-btn">Take part</button>
+              <button
+                id="donation-btn"
+                onClick={() => history.push('/subscribe')}
+              >
+                Donation
+              </button>
+              <button id="join-btn" onClick={() => history.push('/donate')}>
+                Take part
+              </button>
             </div>
           </div>
         </div>

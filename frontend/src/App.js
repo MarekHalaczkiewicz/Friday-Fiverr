@@ -8,6 +8,7 @@ import CarouselContainer from './components/CarouselContainer.js';
 import Subscription from './components/Subscription';
 import Navbar from './components/Navbar';
 import axios from 'axios';
+import { LoginPage } from './components/LoginPage.js';
 
 const projects = [
   {
@@ -24,21 +25,49 @@ const projects = [
     location: 'Berlin',
     organization: 'Dog Shelter Berlin',
   },
+
+  {
+    title: 'Web-page for local orphanage ',
+    media: [
+      'https://upload.wikimedia.org/wikipedia/commons/0/06/St._John%27s_Orphanage_in_2015.jpg',
+    ],
+    body: 'Help with the creation of web-page for a local orphanages. Donate, or come and share your skills with kids.',
+    goal: 450,
+    contributions: [{ amount: 10, id: 'adsfasfsadfda2' }],
+    skills: ['Web-development', 'Online-sites creation'],
+    tags: ['Web Page', 'Web-developer'],
+    location: 'Reinikendorf',
+    organization: 'Save the Children Deutschland',
+  },
+
+  {
+    title: 'Dancing for kids',
+    media: [
+      'https://upload.wikimedia.org/wikipedia/commons/3/38/Two_dancers.jpg',
+    ],
+    body: "For kid's day this year, we want to give the children the opportunity to see, and experience dancing of various music genres and countries. If you can't donate, maybe You are a dancer and give our angels a show of your own.",
+    goal: 250,
+    contributions: [{ amount: 20, id: 'adsfasfsadfda3' }],
+    skills: ['Dance', 'Choreography'],
+    tags: ['Dance'],
+    location: 'Wedding',
+    organization: 'Dance for The Kids',
+  },
 ];
+
+let userToken = JSON.parse(localStorage.getItem('user'));
+const initialState = userToken ? { loggedIn: true, ...userToken } : {};
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [projectList, setProjectList] = useState(projects);
-  const [user, setUser] = useState({
-    username: '',
-    isLoggedIn: false,
-    userId: '',
-  });
+  const [user, setUser] = useState(initialState);
+  const [focused, setFocused] = useState(0);
 
   useEffect(() => {
     axios
       .get('http://localhost:8000/api/projects')
-      .then((data) => setProjectList(data));
+      .then((result) => setProjectList(result.data));
   }, []);
 
   return (
@@ -46,28 +75,39 @@ function App() {
       <Switch>
         <Route exact path="/">
           <div className="App">
-            <Navbar />
+            <Navbar user={user} setUser={setUser} />
             <CarouselContainer />
-            {projectList.map((project, i) => {
-              return (
-                <>
-                  <Card
-                    setModalOpen={setModalOpen}
-                    key={i}
-                    title={project.title}
-                    imageUrl={project.media[0]}
-                    body={project.body}
-                  />
-                  {modalOpen && (
-                    <Modal setModalOpen={setModalOpen} project={project} />
-                  )}
-                </>
-              );
-            })}
+
+            <div className="bottom">
+              {projectList.map((project, i) => {
+                return (
+                  <div className="cards-container">
+                    <Card
+                      setModalOpen={setModalOpen}
+                      setFocused={setFocused}
+                      key={i}
+                      index={i}
+                      title={project.title}
+                      imageUrl={project.media[0]}
+                      body={project.description}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            {modalOpen && (
+              <Modal
+                setModalOpen={setModalOpen}
+                project={projectList[focused]}
+              />
+            )}
           </div>
         </Route>
         <Route path="/subscribe">
           <Subscription />
+        </Route>
+        <Route path="/login">
+          <LoginPage user={user} setUser={setUser} />
         </Route>
       </Switch>
     </UserContext.Provider>
