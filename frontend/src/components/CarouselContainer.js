@@ -8,6 +8,7 @@ import image3 from "./images/image3.jpg";
 const containerImage = {
   width: "100%",
   height: "500px",
+  zIndex: "1,",
 };
 
 const containerStyle = {

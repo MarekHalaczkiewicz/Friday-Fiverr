@@ -1,14 +1,15 @@
 .modalBackground {
-  z-index: 2;
+  z-index: 1000;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(200, 200, 200);
+  background-color: rgb(207, 195, 195);
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .modalContainer {
+  border-radius: 12px;
   width: 60vw;
   height: 60vw;
   display: flex;
@@ -22,7 +23,7 @@
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  padding: 20px;
 }
 
 .img {
@@ -33,7 +34,7 @@
 .modalContainerLeft .title {
   display: inline-block;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 60px;
 }
 
 .titleCloseBtn {
@@ -82,7 +83,7 @@
 .modalContainerRight {
   width: 50%;
   border-radius: 12px;
-  background-color: whitesmoke;
+  background-color: grey;
   display: flex;
   flex-direction: column;
   padding: 25px;
@@ -98,7 +99,6 @@
 }
 
 .modalContainerRight .title {
-  display: inline-block;
   text-align: center;
   margin-top: 10px;
 }
@@ -136,4 +136,5 @@
   border-radius: 8px;
   font-size: 20px;
   cursor: pointer;
+  z-index: 1000;
 }

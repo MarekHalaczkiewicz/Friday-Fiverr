@@ -22,6 +22,34 @@ const projects = [
     location: "Berlin",
     organization: "Dog Shelter Berlin",
   },
+
+  {
+    title: "Web-page for local orphanage ",
+    media: [
+      "https://upload.wikimedia.org/wikipedia/commons/0/06/St._John%27s_Orphanage_in_2015.jpg",
+    ],
+    body: "Help with the creation of web-page for a local orphanages. Donate, or come and share your skills with kids.",
+    goal: 450,
+    contributions: [{ amount: 10, id: "adsfasfsadfda2" }],
+    skills: ["Web-development", "Online-sites creation"],
+    tags: ["Web Page", "Web-developer"],
+    location: "Reinikendorf",
+    organization: "Save the Children Deutschland",
+  },
+
+  {
+    title: "Dancing for kids",
+    media: [
+      "https://upload.wikimedia.org/wikipedia/commons/3/38/Two_dancers.jpg",
+    ],
+    body: "For kid's day this year, we want to give the children the opportunity to see, and experience dancing of various music genres and countries. If you can't donate, maybe You are a dancer and give our angels a show of your own.",
+    goal: 250,
+    contributions: [{ amount: 20, id: "adsfasfsadfda3" }],
+    skills: ["Dance", "Choreography"],
+    tags: ["Dance"],
+    location: "Wedding",
+    organization: "Dance for The Kids",
+  },
 ];
 
 function App() {
@@ -33,6 +61,8 @@ function App() {
     userId: "",
   });
 
+  const [focused, setFocused] = useState(0);
+
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <Switch>
@@ -40,22 +70,30 @@ function App() {
           <div className="App">
             <Navbar />
             <CarouselContainer />
-            {projectList.map((project, i) => {
-              return (
-                <>
-                  <Card
-                    setModalOpen={setModalOpen}
-                    key={i}
-                    title={project.title}
-                    imageUrl={project.media[0]}
-                    body={project.body}
-                  />
-                  {modalOpen && (
-                    <Modal setModalOpen={setModalOpen} project={project} />
-                  )}
-                </>
-              );
-            })}
+
+            <div className="bottom">
+              {projectList.map((project, i) => {
+                return (
+                  <div className="cards-container">
+                    <Card
+                      setModalOpen={setModalOpen}
+                      setFocused={setFocused}
+                      key={i}
+                      index={i}
+                      title={project.title}
+                      imageUrl={project.media[0]}
+                      body={project.body}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            {modalOpen && (
+              <Modal
+                setModalOpen={setModalOpen}
+                project={projectList[focused]}
+              />
+            )}
           </div>
         </Route>
         <Route path="/subscribe">
