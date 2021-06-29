@@ -11,7 +11,7 @@ function Modal({ setModalOpen, project }) {
       <div className="modalContainer">
         <div className="modalContainerLeft">
           <div className="title">
-            <h1>{title}</h1>
+            <h2>{title}</h2>
           </div>
           <div className="media">
             <img className="img" src={media} alt="Project" />
@@ -51,7 +51,7 @@ function Modal({ setModalOpen, project }) {
           </div>
           <div className="donation">
             <div className="title">
-              <h1>The way you can help</h1>
+              <h2>The way you can help</h2>
             </div>
             <div className="bodyRight">
               <p>
