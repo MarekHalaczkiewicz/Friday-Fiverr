@@ -3,6 +3,7 @@ import "./card.css";
 import Modal from "./Modal";
 
 function Card({ setOpenModal, title, imageUrl, body }) {
+
   return (
     <div className="card-container">
       <div className="image-container">
@@ -20,11 +21,13 @@ function Card({ setOpenModal, title, imageUrl, body }) {
         <div class="box">
           <h2 class="text">Donation progress</h2>
           <div class="percent">
+
             <svg>
               <circle cx="70" cy="70" r="70"></circle>
               <circle cx="70" cy="70" r="70"></circle>
             </svg>
             <div class="num">
+
               <h2>
                 80<span>%</span>
               </h2>
