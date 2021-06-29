@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from 'react';
 import "./Modal.css";
+import { useHistory } from 'react-router-dom';
+
 
 function Modal({ setModalOpen, project }) {
   const { title, media, body, goal, skills, tags, location, organization } =
     project;
+    const history = useHistory();
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -12,7 +15,7 @@ function Modal({ setModalOpen, project }) {
             <h1>{title}</h1>
           </div>
           <div className="media">
-            <img className="img" src={media} alt="Project Image" />
+            <img className="img" src={media} alt="Project" />
           </div>
           <div className="body">
             <p>{body}</p>
@@ -79,6 +82,7 @@ function Modal({ setModalOpen, project }) {
             <div className="footerRight">
               <button id="donation-btn">Donation</button>
               <button id="join-btn">Take part</button>
+              
             </div>
           </div>
         </div>
