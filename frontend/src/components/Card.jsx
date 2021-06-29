@@ -1,7 +1,10 @@
 import React from 'react'
 import "./card.css";
+import {useHistory} from 'react-router-dom'
 
 function Card ({title, imageUrl, body}) {
+  const history = useHistory()
+
     return (
         <div className="card-container">
             <div className="image-container">
@@ -31,9 +34,11 @@ function Card ({title, imageUrl, body}) {
 </div>
             </div>
             <div className="button-container">
-                <button className="button"><a>View more</a></button>
-                <button className="button"><a>Donate</a></button>
+                <button className="button" onClick={()=>history.push('/more')}><a>View more</a></button>
+                <button className="button" onClick={() => history.push('/subscribe')} ><a>Subscribe</a></button>
+                <button className="button" onClick={()=>history.push('/donate')}><a>Donate</a></button>
             </div>
+
         </div>
     )
 }
