@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import './card.css';
-import Modal from './Modal';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from "react";
+import "./card.css";
+import Modal from "./Modal";
+import { useHistory } from "react-router-dom";
 
 function Card({ setModalOpen, title, imageUrl, body }) {
   const history = useHistory();
@@ -20,27 +20,15 @@ function Card({ setModalOpen, title, imageUrl, body }) {
       </div>
       <div className="donation-progress">
         <div class="box">
-          <h2 class="text">Donation progress</h2>
-          <div class="percent">
-            <svg>
-              <circle cx="70" cy="70" r="70"></circle>
-              <circle cx="70" cy="70" r="70"></circle>
-            </svg>
-            <div class="num">
-              <h2>
-                80<span>%</span>
-              </h2>
-            </div>
-          </div>
           {/* To fix this div */}
           <div className="button-container">
             <button
               className="button"
-              onClick={() => history.push('/subscribe')}
+              onClick={() => history.push("/subscribe")}
             >
               <a>Subscribe</a>
             </button>
-            <button className="button" onClick={() => history.push('/donate')}>
+            <button className="button" onClick={() => history.push("/donate")}>
               <a>Donate</a>
             </button>
           </div>
