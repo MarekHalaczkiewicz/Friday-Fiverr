@@ -5,6 +5,7 @@ import UserContext from './UserContext';
 import Card from './components/Card';
 import Modal from './components/Modal';
 import CarouselContainer from './components/CarouselContainer.js';
+import Subscription from './components/Subscription';
 
 const projects = [
   {
@@ -54,6 +55,9 @@ function App() {
               );
             })}
           </div>
+        </Route>
+        <Route path="/subscribe">
+          <Subscription />
         </Route>
       </Switch>
     </UserContext.Provider>
