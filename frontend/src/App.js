@@ -1,9 +1,10 @@
 import './App.css';
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
 import UserContext from './UserContext';
 import Card from './components/Card';
 import Modal from './components/Modal';
+import CarouselContainer from './components/CarouselContainer.js';
 
 const projects = [
   {
@@ -33,22 +34,27 @@ function App() {
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <Switch>
-        {projectList.map((project, i) => {
-          return (
-            <div className="App">
-              <Card
-                setModalOpen={setModalOpen}
-                key={i}
-                title={project.title}
-                imageUrl={project.media[0]}
-                body={project.body}
-              />
-              {modalOpen && (
-                <Modal setModalOpen={setModalOpen} project={project} />
-              )}
-            </div>
-          );
-        })}
+        <Route exact path="/">
+          <div className="App">
+            <CarouselContainer />
+            {projectList.map((project, i) => {
+              return (
+                <>
+                  <Card
+                    setModalOpen={setModalOpen}
+                    key={i}
+                    title={project.title}
+                    imageUrl={project.media[0]}
+                    body={project.body}
+                  />
+                  {modalOpen && (
+                    <Modal setModalOpen={setModalOpen} project={project} />
+                  )}
+                </>
+              );
+            })}
+          </div>
+        </Route>
       </Switch>
     </UserContext.Provider>
   );
