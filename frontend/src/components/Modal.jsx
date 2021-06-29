@@ -1,7 +1,7 @@
-import React from "react";
-import "./Modal.css";
+import React from 'react';
+import './Modal.css';
 
-function Modal({ setOpenModal, title, imageUrl, body }) {
+function Modal({ setModalOpen, project }) {
   console.log();
   return (
     <div className="modalBackground">
@@ -9,22 +9,22 @@ function Modal({ setOpenModal, title, imageUrl, body }) {
         <div className="titleCloseBtn">
           <button
             onClick={() => {
-              setOpenModal(false);
+              setModalOpen(false);
             }}
           >
             X
           </button>
         </div>
         <div className="title">
-          <h1>{title}</h1>
+          <h1>{project.title}</h1>
         </div>
         <div className="body">
-          <p>{body}</p>
+          <p>{project.body}</p>
         </div>
         <div className="footer">
           <button
             onClick={() => {
-              setOpenModal(false);
+              setModalOpen(false);
             }}
             id="cancelBtn"
           >
