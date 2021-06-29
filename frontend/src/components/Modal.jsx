@@ -2,7 +2,8 @@ import React from 'react';
 import './Modal.css';
 
 function Modal({ setModalOpen, project }) {
-  console.log();
+  const { title, media, body, goal, skills, tags, location, organiation } =
+    project;
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -16,10 +17,10 @@ function Modal({ setModalOpen, project }) {
           </button>
         </div>
         <div className="title">
-          <h1>{project.title}</h1>
+          <h1>{title}</h1>
         </div>
         <div className="body">
-          <p>{project.body}</p>
+          <p>{body}</p>
         </div>
         <div className="footer">
           <button
