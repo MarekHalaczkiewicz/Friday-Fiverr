@@ -1,10 +1,13 @@
-import './App.css';
-import { Switch } from 'react-router-dom';
+import "./App.css";
+import { Switch } from "react-router-dom";
+import CarouselContainer from "./components/CarouselContainer.js";
 
 function App() {
   return (
     <Switch>
-      <div></div>
+      <div>
+        <CarouselContainer />
+      </div>
     </Switch>
   );
 }
