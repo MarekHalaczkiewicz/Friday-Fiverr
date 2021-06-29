@@ -1,9 +1,41 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import './Modal.css';
+import UserContext from '../UserContext';
+import axios from 'axios';
 
-function Modal({ setModalOpen, project }) {
-  const { title, media, body, goal, skills, tags, location, organiation } =
-    project;
+function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
+  const { user } = useContext(UserContext);
+  const {
+    projectId,
+    title,
+    media,
+    body,
+    goal,
+    skills,
+    tags,
+    location,
+    organiation,
+  } = project;
+
+  const [amount, setAmount] = useState(0);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const bodyReq = {
+      projectId,
+      userId: user.userId,
+      amount,
+    };
+
+    const response = await axios.post(
+      `http://localhost:8000/api/projects/${projectId}/contribute`,
+      bodyReq
+    );
+    let updatedProjectList = [...projectList];
+    updatedProjectList[index].contributions = response.data;
+    setProjectList(updatedProjectList);
+  };
+
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -23,6 +55,17 @@ function Modal({ setModalOpen, project }) {
           <p>{body}</p>
         </div>
         <div className="footer">
+          <form onSubmit={handleSubmit}>
+            <label>
+              Amount:
+              <input
+                type="number"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+              />
+            </label>
+            <input type="submit" value="Submit" />
+          </form>
           <button
             onClick={() => {
               setModalOpen(false);

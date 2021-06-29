@@ -7,6 +7,7 @@ import Modal from './components/Modal';
 
 const projects = [
   {
+    projectId: '123456789',
     title: 'Dog Shelter',
     media: [
       'https://media.4-paws.org/a/9/b/d/a9bd2520c2a7c941680bbfc56182ed5615e7cd3c/VIER%20PFOTEN_2016-09-18_081-1927x1333.jpg',
@@ -44,7 +45,13 @@ function App() {
                 body={project.body}
               />
               {modalOpen && (
-                <Modal setModalOpen={setModalOpen} project={project} />
+                <Modal
+                  index={i}
+                  setModalOpen={setModalOpen}
+                  project={project}
+                  projectList={projectList}
+                  setProjectList={setProjectList}
+                />
               )}
             </div>
           );
