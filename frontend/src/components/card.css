@@ -19,9 +19,9 @@
   margin-top: 0.5rem;
 }
 .button-container {
-  display: flex;
-  justify-content: space-between;
   margin: 10px;
+  display: flex;
+  justify-items: center;
 }
 .button {
   padding: 9px 25px;
@@ -32,7 +32,7 @@
   transition: all 0.3s ease 0s;
   font-weight: 600;
   font-size: 10px;
-  color: darkgrey;
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
