@@ -25,7 +25,7 @@ const CarouselContainer = () => {
         <Carousel.Caption style={containerStyle}>
           <h3>Find your local community project</h3>
           <p>Join today and improve your local community</p>
-          <Button variant="outline-primary" size="lg">
+          <Button variant="success" size="lg">
             Create Project
           </Button>{" "}
         </Carousel.Caption>
@@ -36,6 +36,9 @@ const CarouselContainer = () => {
         <Carousel.Caption style={containerStyle}>
           <h3>Find your local community project</h3>
           <p>Join today and improve your local community</p>
+          <Button variant="success" size="lg">
+            Create Project
+          </Button>{" "}
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item style={containerImage}>
@@ -44,6 +47,9 @@ const CarouselContainer = () => {
         <Carousel.Caption style={containerStyle}>
           <h3>Find your local community project</h3>
           <p>Join today and improve your local community</p>
+          <Button variant="success" size="lg">
+            Create Project
+          </Button>{" "}
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
