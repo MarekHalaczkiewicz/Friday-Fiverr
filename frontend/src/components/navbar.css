@@ -4,10 +4,11 @@
   padding: 0;
   background-color: white;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding: 10px 3%;
 }
+
 li,
 a,
 button {
@@ -16,22 +17,23 @@ button {
   color: darkgrey;
   text-decoration: none;
 }
-.nav-logo {
-  margin-right: auto;
-}
+
 .logo {
   cursor: pointer;
   max-width: 70px;
 }
 .nav-section1 {
-  list-style: none;
+  justify-items: center;
 }
 .nav-section1 li {
   display: inline-block;
   padding: 0px 20px;
+  margin: 0px;
 }
 .nav-section1 li a {
+  color: black;
   transition: all 0.3s ease 0s;
+  text-decoration: none;
 }
 .nav-section1 li a:hover {
   color: #0f643c;
@@ -46,5 +48,5 @@ button {
 }
 .login-button:hover {
   background-color: #0f643c;
-  color: rgb(7, 160, 127);
+  color: rgb(212, 16, 16);
 }
