@@ -18,6 +18,7 @@ export const Subscription = ({ id }) => {
       pitch,
     };
 
+    console.log(id);
     await axios
       .post(`http://localhost:8000/api/projects/${id}/subscribe`, bodyReq)
       .then((response) => {

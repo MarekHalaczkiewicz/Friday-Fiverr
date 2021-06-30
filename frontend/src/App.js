@@ -89,8 +89,9 @@ function App() {
       .then((result) => setProjectList(result.data));
   }, []);
 
-  const filteredProjects = projectList.filter((project) =>
-    project.location.toLocaleLowerCase().includes(search)
+  const filteredProjects = projectList.filter(
+    (project) =>
+      project.location && project.location.toLocaleLowerCase().includes(search)
   );
 
   return (
