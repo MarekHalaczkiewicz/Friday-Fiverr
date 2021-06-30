@@ -20,9 +20,9 @@ export const Subscription = () => {
   return (
     <form className="formcontainer" onSubmit={submitForm}>
       <h1 className="formcontainertitle">I want to work on this project</h1>
-      <div className="labelcontainer">
-        <label>
-          Name:
+      <div>
+        <label className="labelcontainer">
+          Name
           <input
             type="text"
             placeholder="Your Name"
@@ -30,8 +30,8 @@ export const Subscription = () => {
             onChange={(event) => setName(event.target.value)}
           />
         </label>
-        <label>
-          Fiverr:
+        <label className="labelcontainer">
+          Fiverr
           <input
             type="text"
             placeholder="Your Fiverr URL"
@@ -39,18 +39,18 @@ export const Subscription = () => {
             onChange={(event) => setUrl(event.target.value)}
           />
         </label>
-        <label>
-          Skillset:
-          <input
+        <label className="labelcontainer">
+          Skillset
+          <textarea
             type="text"
             placeholder="Name project relevant skills"
             value={skillset}
             onChange={(event) => setSkillset(event.target.value)}
           />
         </label>
-        <label>
-          Pitch:
-          <input
+        <label className="labelcontainer">
+          Pitch
+          <textarea
             type="text"
             placeholder="Why would you like the job?"
             value={pitch}

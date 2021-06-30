@@ -3,6 +3,9 @@
   flex-direction: column;
   background-color: #0d084d;
   text-align: center;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 
   font: 20px helvetica, sans-serif;
   font-weight: 400;
@@ -12,7 +15,7 @@
 .formcontainertitle {
   font: 32px helvetica, sans-serif;
   font-weight: bold;
-  padding: 5px;
+  margin-top: 5px;
 }
 
 .submitbutton {
@@ -21,12 +24,17 @@
   border: 2px;
   border-color: #0d084d;
   padding: 5px;
+  width: 30%;
+  margin-top: 5px;
 }
 
 .labelcontainer {
   display: flex;
   flex-direction: column;
-
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   text-align: center;
   padding: 10px;
+  border-radius: 30%;
 }
