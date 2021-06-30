@@ -11,6 +11,7 @@ import Navbar from './components/Navbar';
 import axios from 'axios';
 import { LoginPage } from './components/LoginPage.js';
 import SearchBar from './SearchBar';
+import Form from './components/SubmitForm';
 
 const projects = [
   {
@@ -103,11 +104,10 @@ function App() {
             <div className="bottom">
               {filteredProjects.map((project, i) => {
                 return (
-                  <div className="cards-container">
+                  <div key={i} className="cards-container">
                     <Card
                       setModalOpen={setModalOpen}
                       setFocused={setFocused}
-                      key={i}
                       index={i}
                       title={project.title}
                       imageUrl={project.media[0]}
@@ -132,6 +132,9 @@ function App() {
         </Route>
         <Route path="/login">
           <LoginPage user={user} setUser={setUser} />
+        </Route>
+        <Route path="/submit">
+          <Form setProjectList={setProjectList} />
         </Route>
       </Switch>
     </UserContext.Provider>

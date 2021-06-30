@@ -16,7 +16,7 @@ const Navbar = ({ user, setUser }) => {
           <a href="#">My jobs</a>
         </li>
         <li>
-          <a href="#">Create a Project</a>
+          <a href="/submit">Create a Project</a>
         </li>
         <li>
           <a href="#">{user.loggedIn && user.username}</a>
