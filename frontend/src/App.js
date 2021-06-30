@@ -97,25 +97,28 @@ function App() {
     <UserContext.Provider value={{ user, setUser }}>
       <Switch>
         <Route exact path="/">
+          <Navbar user={user} setUser={setUser} />
+          <CarouselContainer />
           <div className="App">
-            <Navbar user={user} setUser={setUser} />
-            <CarouselContainer />
+            <br></br>
             <SearchBar keyword={search} setKeyword={setSearch} />
             <div className="bottom">
-              {filteredProjects.map((project, i) => {
-                return (
-                  <div key={i} className="cards-container">
-                    <Card
-                      setModalOpen={setModalOpen}
-                      setFocused={setFocused}
-                      index={i}
-                      title={project.title}
-                      imageUrl={project.media[0]}
-                      body={project.description}
-                    />
-                  </div>
-                );
-              })}
+              {filteredProjects.length &&
+                filteredProjects.map((project, i) => {
+                  return (
+                    <div key={i} className="cards-container">
+                      <Card
+                        setModalOpen={setModalOpen}
+                        setFocused={setFocused}
+                        index={i}
+                        title={project.title}
+                        imageUrl={project.media[0]}
+                        body={project.description}
+                        location={project.location}
+                      />
+                    </div>
+                  );
+                })}
             </div>
             {modalOpen && (
               <Modal
@@ -128,7 +131,7 @@ function App() {
           </div>
         </Route>
         <Route path="/subscribe">
-          <Subscription id={projectList[focused]._id} />
+          <Subscription id={projectList.length && projectList[focused]._id} />
         </Route>
         <Route path="/login">
           <LoginPage user={user} setUser={setUser} />

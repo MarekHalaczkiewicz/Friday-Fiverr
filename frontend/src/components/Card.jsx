@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import "./card.css";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import './card.css';
+import { useHistory } from 'react-router-dom';
 
 function Card({
   setModalOpen,
@@ -24,9 +24,8 @@ function Card({
         <div className="card-body">
           <p>{body}</p>
           <strong>
-            <p>Location: </p>
-          </strong>{" "}
-          {location}
+            <p>Location: {location}</p>
+          </strong>
         </div>
       </div>
       <div className="donation-progress"></div>
