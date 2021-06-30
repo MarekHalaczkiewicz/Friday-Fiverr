@@ -122,11 +122,8 @@ function App() {
           </div>
         </Route>
         <Route path="/subscribe">
-          <Subscription />
+          <Subscription id={projectList[focused]._id} />
         </Route>
-        {/* <Route path="/donate">
-          <Donate />
-        </Route> */}
         <Route path="/login">
           <LoginPage user={user} setUser={setUser} />
         </Route>

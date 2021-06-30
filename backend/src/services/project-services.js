@@ -4,6 +4,7 @@ const Project = db.Project;
 
 module.exports = {
   findAndUpdate,
+  findAndUpdateOrg,
   getAll,
   getById,
   create,
@@ -20,6 +21,19 @@ async function findAndUpdate(projectId, projectParam) {
   const updatedProject = await Project.findOneAndUpdate(
     { _id: projectId },
     { $push: { contributors: { userId, amount } } },
+    // { title: 'King in the North' },
+    // If `new` isn't true, `findOneAndUpdate()` will return the
+    // document as it was _before_ it was updated.
+    { new: true }
+  );
+  return await updatedProject;
+}
+
+async function findAndUpdateOrg(projectId, projectParam) {
+  const { name, profileURL, skillset, pitch } = projectParam;
+  const updatedProject = await Project.findOneAndUpdate(
+    { _id: projectId },
+    { contractor: { name, profileURL, skillset, pitch } },
     // { title: 'King in the North' },
     // If `new` isn't true, `findOneAndUpdate()` will return the
     // document as it was _before_ it was updated.

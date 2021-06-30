@@ -21,6 +21,13 @@ module.exports.findAndUpdate = (req, res, next) => {
     .catch((err) => next(err));
 };
 
+module.exports.findAndUpdateOrg = (req, res, next) => {
+  projectService
+    .findAndUpdateOrg(req.params.id, req.body)
+    .then((data) => res.json(data))
+    .catch((err) => next(err));
+};
+
 // module.exports.getCurrent = (req, res, next) => {
 //   projectService
 //     .getById(req.user.sub)

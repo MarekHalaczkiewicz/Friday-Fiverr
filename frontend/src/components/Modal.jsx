@@ -153,7 +153,10 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
                 <button id="donation-btn" type="submit">
                   Donation
                 </button>
-                <button id="join-btn" onClick={() => history.push('/donate')}>
+                <button
+                  id="join-btn"
+                  onClick={() => history.push('/subscribe')}
+                >
                   Take part
                 </button>
               </div>

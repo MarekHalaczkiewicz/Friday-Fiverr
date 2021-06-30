@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import "./subscription.css";
-import axios from "axios";
+import React, { useState } from 'react';
+import './subscription.css';
+import axios from 'axios';
 
-export const Subscription = () => {
-  const [name, setName] = useState("");
-  const [url, setUrl] = useState("");
-  const [skillset, setSkillset] = useState("");
-  const [pitch, setPitch] = useState("");
+export const Subscription = ({ id }) => {
+  const [name, setName] = useState('');
+  const [url, setUrl] = useState('');
+  const [skillset, setSkillset] = useState('');
+  const [pitch, setPitch] = useState('');
   async function submitForm(e) {
     e.preventDefault();
     const bodyReq = {
@@ -15,7 +15,12 @@ export const Subscription = () => {
       skillset,
       pitch,
     };
-    console.log(bodyReq);
+
+    await axios
+      .post(`http://localhost:8000/api/projects/${id}/subscribe`, bodyReq)
+      .then((response) => {
+        console.log(response.data);
+      });
   }
   return (
     <div>
