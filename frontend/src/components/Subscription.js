@@ -27,11 +27,11 @@ export const Subscription = ({ id }) => {
     history.push('/');
   }
   return (
-    <div>
-      <form onSubmit={submitForm}>
-        <h1>I want to work on this project</h1>
-        <label>
-          Name:
+    <form className="formcontainer" onSubmit={submitForm}>
+      <h1 className="formcontainertitle">I want to work on this project</h1>
+      <div>
+        <label className="labelcontainer">
+          Name
           <input
             type="text"
             placeholder="Your Name"
@@ -39,8 +39,8 @@ export const Subscription = ({ id }) => {
             onChange={(event) => setName(event.target.value)}
           />
         </label>
-        <label>
-          Fiverr:
+        <label className="labelcontainer">
+          Fiverr
           <input
             type="text"
             placeholder="Your Fiverr URL"
@@ -48,34 +48,34 @@ export const Subscription = ({ id }) => {
             onChange={(event) => setUrl(event.target.value)}
           />
         </label>
-        <label>
-          Skillset:
-          <input
+        <label className="labelcontainer">
+          Skillset
+          <textarea
             type="text"
             placeholder="Name project relevant skills"
             value={skillset}
             onChange={(event) => setSkillset(event.target.value)}
           />
         </label>
-        <label>
-          Pitch:
-          <input
+        <label className="labelcontainer">
+          Pitch
+          <textarea
             type="text"
             placeholder="Why would you like the job?"
             value={pitch}
             onChange={(event) => setPitch(event.target.value)}
           />
         </label>
-        <input type="submit" value="Submit" />
-        {/* <textarea
+      </div>
+      <input className="submitbutton" type="submit" value="Submit" />
+      {/* <textarea
           className="textarea"
           placeholder="0/200"
           maxLength="200"
           onChange={(event) => setValue(event.target.value)}
           value={value}
         ></textarea> */}
-      </form>
-    </div>
+    </form>
   );
 };
 
