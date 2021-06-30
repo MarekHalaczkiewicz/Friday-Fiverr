@@ -14,7 +14,7 @@ a,
 button {
   font-weight: 600;
   font-size: 16px;
-  color: darkgrey;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
@@ -41,7 +41,7 @@ button {
 }
 .login-button {
   padding: 9px 25px;
-  background-color: rgb(93, 80, 80);
+  background-color: #1ba463;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -49,5 +49,4 @@ button {
 }
 .login-button:hover {
   background-color: #0f643c;
-  color: rgb(212, 16, 16);
 }
