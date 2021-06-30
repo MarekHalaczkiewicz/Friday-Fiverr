@@ -8,7 +8,7 @@
   "contributions": [],
   "skills": ["Video Editing", "Short video Ads", "Camera"],
   "tags": ["Filming", "Editing"],
-  "location": { "latitude": "12312311323", "longitude": "131231231231" },
+  "location": "Berlin",
   "organization": {
     "name": "Dog Shelter Berlin",
     "contact": "pappp",
@@ -24,7 +24,7 @@
   "contributions": [],
   "skills": ["Web-development", "Online-sites creation"],
   "tags": ["Web Page", "Web-developer"],
-  "location": "Reinikendorf",
+  "location": "Berlin",
   "organization": {
     "name": "Save the Children Deutschland",
     "contact": "pappp",
