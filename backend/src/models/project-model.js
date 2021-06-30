@@ -57,26 +57,25 @@ const schema = new Schema({
     account: {
       type: String,
     },
-    contractor: {
-      name: {
-        type: String,
-        required: false,
-      },
-      profileURL: {
-        type: String,
-        required: false,
-      },
-      skillset: {
-        type: String,
-        required: false
-      },
-      pitch: {
-        type: String,
-        required: false
-      },
-  
   },
-
+  contractor: {
+    name: {
+      type: String,
+      required: false,
+    },
+    profileURL: {
+      type: String,
+      required: false,
+    },
+    skillset: {
+      type: String,
+      required: false,
+    },
+    pitch: {
+      type: String,
+      required: false,
+    },
+  },
   createdDate: { type: Date, default: Date.now },
 });
 
