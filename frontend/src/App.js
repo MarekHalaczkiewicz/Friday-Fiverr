@@ -107,9 +107,9 @@ function App() {
         <Route path="/subscribe">
           <Subscription />
         </Route>
-        <Route path="/donate">
+        {/* <Route path="/donate">
           <Donate />
-        </Route>
+        </Route> */}
         <Route path="/login">
           <LoginPage user={user} setUser={setUser} />
         </Route>
