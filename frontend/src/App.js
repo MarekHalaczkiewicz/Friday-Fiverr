@@ -7,6 +7,7 @@ import Modal from "./components/Modal";
 import CarouselContainer from "./components/CarouselContainer.js";
 import Subscription from "./components/Subscription";
 import Navbar from "./components/Navbar";
+import Test from "./components/SubmitForm";
 
 const projects = [
   {
@@ -60,6 +61,9 @@ function App() {
         </Route>
         <Route path="/subscribe">
           <Subscription />
+        </Route>
+        <Route path="/submit">
+          <SubmitForm />
         </Route>
       </Switch>
     </UserContext.Provider>
