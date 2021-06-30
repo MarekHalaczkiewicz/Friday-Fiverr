@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import "./card.css";
-import Modal from "./Modal";
 import { useHistory } from "react-router-dom";
 
-function Card({ setModalOpen, setFocused, index, title, imageUrl, body }) {
+function Card({
+  setModalOpen,
+  setFocused,
+  index,
+  title,
+  imageUrl,
+  body,
+  location,
+}) {
   const history = useHistory();
   return (
     <div className="card-container">
@@ -16,6 +23,10 @@ function Card({ setModalOpen, setFocused, index, title, imageUrl, body }) {
         </div>
         <div className="card-body">
           <p>{body}</p>
+          <strong>
+            <p>Location: </p>
+          </strong>{" "}
+          {location}
         </div>
       </div>
       <div className="donation-progress"></div>

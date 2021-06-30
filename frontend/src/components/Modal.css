@@ -127,14 +127,24 @@
 }
 
 .modalContainerRight .footerRight button {
+  margin-top: 20px;
   width: 150px;
   height: 45px;
   margin: 10px;
   border: none;
-  background-color: cornflowerblue;
-  color: white;
+  background-color: #1ba463;
+  color: black;
   border-radius: 8px;
   font-size: 20px;
   cursor: pointer;
   z-index: 1000;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.modalContainerRight .footerRight button:hover {
+  background-color: #0f643c;
+}
+.input {
+  width: 340px;
 }
