@@ -20,6 +20,7 @@ const Navbar = ({ user, setUser }) => {
         </li>
       </ul>
       <div className="nav-section2">
+        {user.loggedIn && <h2>{user.username}</h2>}
         {user.loggedIn ? (
           <button
             className="login-button"
