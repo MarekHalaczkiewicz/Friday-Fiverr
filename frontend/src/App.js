@@ -54,7 +54,7 @@ const projects = [
   {
     title: 'Dancing for kids',
     media: [
-      'https://upload.wikimedia.org/wikipedia/commons/3/38/Two_dancers.jpg',
+      'https://cms.qz.com/wp-content/uploads/2019/12/The-power-of-dance-e1575906582595.jpg?quality=75&strip=all&w=1600&h=900&crop=1',
     ],
     description:
       "For kid's day this year, we want to give the children the opportunity to see, and experience dancing of various music genres and countries. If you can't donate, maybe You are a dancer and give our angels a show of your own.",
