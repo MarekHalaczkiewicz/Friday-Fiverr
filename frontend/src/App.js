@@ -17,13 +17,18 @@ const projects = [
     media: [
       'https://media.4-paws.org/a/9/b/d/a9bd2520c2a7c941680bbfc56182ed5615e7cd3c/VIER%20PFOTEN_2016-09-18_081-1927x1333.jpg',
     ],
-    body: 'Donate now to fund animal rescue organizations, provide affordable equipment for wildlife search and rescue, and support adoptable cats, dogs, and other pets. We also looking for people, who can create a short video for us, to be played in local tv',
+    description:
+      'Donate now to fund animal rescue organizations, provide affordable equipment for wildlife search and rescue, and support adoptable cats, dogs, and other pets. We also looking for people, who can create a short video for us, to be played in local tv',
     goal: 500,
     contributions: [{ amount: 5, id: 'adsfasfsadfda' }],
     skills: ['Video Editing', 'Short video Ads', 'Camera'],
     tags: ['Filming', 'Editing'],
     location: 'Berlin',
-    organization: 'Dog Shelter Berlin',
+    organization: {
+      name: 'Dog Shelter Berlin',
+      contact: 'pappp',
+      account: 'aslk;dfjals;fj',
+    },
   },
 
   {
@@ -31,13 +36,18 @@ const projects = [
     media: [
       'https://upload.wikimedia.org/wikipedia/commons/0/06/St._John%27s_Orphanage_in_2015.jpg',
     ],
-    body: 'Help with the creation of web-page for a local orphanages. Donate, or come and share your skills with kids.',
+    description:
+      'Help with the creation of web-page for a local orphanages. Donate, or come and share your skills with kids.',
     goal: 450,
     contributions: [{ amount: 10, id: 'adsfasfsadfda2' }],
     skills: ['Web-development', 'Online-sites creation'],
     tags: ['Web Page', 'Web-developer'],
     location: 'Reinikendorf',
-    organization: 'Save the Children Deutschland',
+    organization: {
+      name: 'Save the Children Deutschland',
+      contact: 'pappp',
+      account: 'aslk;dfjals;fj',
+    },
   },
 
   {
@@ -45,13 +55,18 @@ const projects = [
     media: [
       'https://upload.wikimedia.org/wikipedia/commons/3/38/Two_dancers.jpg',
     ],
-    body: "For kid's day this year, we want to give the children the opportunity to see, and experience dancing of various music genres and countries. If you can't donate, maybe You are a dancer and give our angels a show of your own.",
+    description:
+      "For kid's day this year, we want to give the children the opportunity to see, and experience dancing of various music genres and countries. If you can't donate, maybe You are a dancer and give our angels a show of your own.",
     goal: 250,
     contributions: [{ amount: 20, id: 'adsfasfsadfda3' }],
     skills: ['Dance', 'Choreography'],
     tags: ['Dance'],
     location: 'Wedding',
-    organization: 'Dance for The Kids',
+    organization: {
+      name: 'Dance for The Kids',
+      contact: 'pappp',
+      account: 'aslk;dfjals;fj',
+    },
   },
 ];
 
@@ -99,6 +114,8 @@ function App() {
               <Modal
                 setModalOpen={setModalOpen}
                 project={projectList[focused]}
+                projectList={projectList}
+                setProjectList={setProjectList}
               />
             )}
           </div>

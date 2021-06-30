@@ -1,8 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './Modal.css';
 import UserContext from '../UserContext';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import ProgressBar from './ProgressBar';
 
 function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
   const history = useHistory();
@@ -20,6 +21,16 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
   } = project;
 
   const [amount, setAmount] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    const tempTotal = project.contributors.reduce(
+      (total, obj) => obj.amount + total,
+      0
+    );
+    setTotal(tempTotal);
+    console.log(tempTotal);
+  }, [projectList]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,10 +39,17 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
       amount,
     };
 
-    axios
+    await axios
       .post(`http://localhost:8000/api/projects/${_id}/contribute`, bodyReq)
-      .then((response) => console.log(response.data));
-    console.log(user);
+      .then((response) => {
+        console.log(response.data);
+      });
+
+    await axios.get('http://localhost:8000/api/projects').then((result) => {
+      console.log(projectList);
+      setProjectList(result.data);
+      console.log(projectList);
+    });
 
     // const response = await axios.post(
     //   `http://localhost:8000/api/projects/${projectId}/contribute`,
@@ -104,6 +122,11 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
                 <strong>Goal: </strong>
                 {goal}€
               </p>
+              <p>{`${total} / ${goal}€`}</p>
+              <ProgressBar
+                bgcolor={'#6a1b9a'}
+                completed={Math.floor((total / goal) * 100)}
+              />
               <p>
                 <strong>Skills needed: </strong>
                 {skills.map((skill) => {
@@ -126,19 +149,15 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
                   onChange={(e) => setAmount(e.target.value)}
                 />
               </label>
-              <input type="submit" value="Submit" />
+              <div className="footerRight">
+                <button id="donation-btn" type="submit">
+                  Donation
+                </button>
+                <button id="join-btn" onClick={() => history.push('/donate')}>
+                  Take part
+                </button>
+              </div>
             </form>
-            <div className="footerRight">
-              <button
-                id="donation-btn"
-                onClick={() => history.push('/subscribe')}
-              >
-                Donation
-              </button>
-              <button id="join-btn" onClick={() => history.push('/donate')}>
-                Take part
-              </button>
-            </div>
           </div>
         </div>
       </div>

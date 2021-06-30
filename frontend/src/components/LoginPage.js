@@ -1,7 +1,9 @@
-import { useState } from 'react';
-import { Link, useLocation, useHistory } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { useLocation, useHistory } from 'react-router-dom';
+import UserContext from '../UserContext';
 
-const LoginPage = ({ user, setUser }) => {
+const LoginPage = () => {
+  const { setUser } = useContext(UserContext);
   const [inputs, setInputs] = useState({
     username: '',
     password: '',
