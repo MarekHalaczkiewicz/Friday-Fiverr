@@ -1,16 +1,19 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import UserContext from "./UserContext";
 import Card from "./components/Card";
 import Modal from "./components/Modal";
 import CarouselContainer from "./components/CarouselContainer.js";
 import Subscription from "./components/Subscription";
-import Navbar from "./components/Navbar";
 import Donate from "./components/Donate";
+import Navbar from "./components/Navbar";
+import axios from "axios";
+import { LoginPage } from "./components/LoginPage.js";
 
 const projects = [
   {
+    projectId: "123456789",
     title: "Dog Shelter",
     media: [
       "https://media.4-paws.org/a/9/b/d/a9bd2520c2a7c941680bbfc56182ed5615e7cd3c/VIER%20PFOTEN_2016-09-18_081-1927x1333.jpg",
@@ -53,23 +56,27 @@ const projects = [
   },
 ];
 
+let userToken = JSON.parse(localStorage.getItem("user"));
+const initialState = userToken ? { loggedIn: true, ...userToken } : {};
+
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [projectList, setProjectList] = useState(projects);
-  const [user, setUser] = useState({
-    username: "",
-    isLoggedIn: false,
-    userId: "",
-  });
-
+  const [user, setUser] = useState(initialState);
   const [focused, setFocused] = useState(0);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/projects")
+      .then((result) => setProjectList(result.data));
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <Switch>
         <Route exact path="/">
           <div className="App">
-            <Navbar />
+            <Navbar user={user} setUser={setUser} />
             <CarouselContainer />
 
             <div className="bottom">
@@ -83,7 +90,7 @@ function App() {
                       index={i}
                       title={project.title}
                       imageUrl={project.media[0]}
-                      body={project.body}
+                      body={project.description}
                     />
                   </div>
                 );
@@ -102,6 +109,9 @@ function App() {
         </Route>
         <Route path="/donate">
           <Donate />
+        </Route>
+        <Route path="/login">
+          <LoginPage user={user} setUser={setUser} />
         </Route>
       </Switch>
     </UserContext.Provider>

@@ -1,11 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './Modal.css';
+import UserContext from '../UserContext';
+import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
-function Modal({ setModalOpen, project }) {
-  const { title, media, body, goal, skills, tags, location, organization } =
-    project;
+function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
   const history = useHistory();
+  const { user } = useContext(UserContext);
+  const {
+    _id,
+    title,
+    media,
+    description,
+    goal,
+    skills,
+    tags,
+    location,
+    organization,
+  } = project;
+
+  const [amount, setAmount] = useState(0);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const bodyReq = {
+      userId: user.id,
+      amount,
+    };
+
+    axios
+      .post(`http://localhost:8000/api/projects/${_id}/contribute`, bodyReq)
+      .then((response) => console.log(response.data));
+    console.log(user);
+
+    // const response = await axios.post(
+    //   `http://localhost:8000/api/projects/${projectId}/contribute`,
+    //   bodyReq
+    // );
+    // let updatedProjectList = [...projectList];
+    // updatedProjectList[index].contributions = response.data;
+    // setProjectList(updatedProjectList);
+  };
+
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -17,14 +53,14 @@ function Modal({ setModalOpen, project }) {
             <img className="img" src={media} alt="Project" />
           </div>
           <div className="bodyLeft">
-            <p>{body}</p>
+            <p>{description}</p>
             <p>
               <strong>Location: </strong>
-              {location}
+              {/* {location} */}
             </p>
             <p>
               <strong>organization: </strong>
-              {organization}
+              {organization.name}
             </p>
           </div>
           <div className="footerLeft">
@@ -74,11 +110,24 @@ function Modal({ setModalOpen, project }) {
                   return skill;
                 })}
               </p>
-              <p>
+              {/* <p>
                 <strong>tags: </strong>
-                {tags}
-              </p>
+                {tags.map((tag) => {
+                  return tag;
+                })}
+              </p> */}
             </div>
+            <form onSubmit={handleSubmit}>
+              <label>
+                Amount:
+                <input
+                  type="number"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                />
+              </label>
+              <input type="submit" value="Submit" />
+            </form>
             <div className="footerRight">
               <button
                 id="donation-btn"

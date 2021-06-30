@@ -5,7 +5,7 @@ export const Subscription = () => {
   const [value, setValue] = useState("");
   return (
     <div>
-      <h1>Subscription</h1>
+      <h1>I want to work on this project</h1>
       <textarea
         className="textarea"
         placeholder="0/200"

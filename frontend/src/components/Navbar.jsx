@@ -1,8 +1,11 @@
-import React from "react";
-import "../components/navbar.css";
-import logo from "../Assets/logo.png";
+import React from 'react';
+import '../components/navbar.css';
+import logo from '../Assets/logo.png';
+import { useHistory } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ user, setUser }) => {
+  const history = useHistory();
+
   return (
     <nav className="navbar">
       <div className="nav-logo">
@@ -17,7 +20,25 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="nav-section2">
-        <button className="login-button">Log in</button>
+        {user.loggedIn && <h2>{user.username}</h2>}
+        {user.loggedIn ? (
+          <button
+            className="login-button"
+            onClick={() => {
+              localStorage.removeItem('user');
+              setUser({});
+            }}
+          >
+            Log out
+          </button>
+        ) : (
+          <button
+            className="login-button"
+            onClick={() => history.push('/login')}
+          >
+            Log in
+          </button>
+        )}
       </div>
     </nav>
   );
