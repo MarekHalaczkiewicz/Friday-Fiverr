@@ -10,7 +10,7 @@ import Subscription from './components/Subscription';
 import Navbar from './components/Navbar';
 import axios from 'axios';
 import { LoginPage } from './components/LoginPage.js';
-import SearchBar from './SearchBar';
+import SearchBar from './components/SearchBar';
 import Form from './components/SubmitForm';
 
 const projects = [
