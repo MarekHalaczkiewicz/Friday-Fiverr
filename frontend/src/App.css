@@ -16,4 +16,14 @@
 }
 .bottom {
   display: flex;
+  justify-content: space-around;
+}
+.footer {
+  margin-top: 2rem;
+  position: fixed;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }

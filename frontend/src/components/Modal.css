@@ -129,7 +129,7 @@
 .modalContainerRight .footerRight button {
   width: 150px;
   height: 45px;
-  margin: 10px;
+  margin-top: 20px;
   border: none;
   background-color: cornflowerblue;
   color: white;

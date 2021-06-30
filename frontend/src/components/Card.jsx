@@ -18,7 +18,6 @@ function Card({ setModalOpen, setFocused, index, title, imageUrl, body }) {
           <p>{body}</p>
         </div>
       </div>
-      <div className="donation-progress"></div>
       <div className="button-container">
         <button
           className="button"

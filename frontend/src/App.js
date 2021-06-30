@@ -1,61 +1,64 @@
-import './App.css';
-import { Switch, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import UserContext from './UserContext';
-import Card from './components/Card';
-import Modal from './components/Modal';
-import CarouselContainer from './components/CarouselContainer.js';
-import Subscription from './components/Subscription';
-import Navbar from './components/Navbar';
-import axios from 'axios';
-import { LoginPage } from './components/LoginPage.js';
+import "./App.css";
+import { Switch, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import UserContext from "./UserContext";
+import Card from "./components/Card";
+import Modal from "./components/Modal";
+import CarouselContainer from "./components/CarouselContainer.js";
+import Subscription from "./components/Subscription";
+import Navbar from "./components/Navbar";
+import axios from "axios";
+import { LoginPage } from "./components/LoginPage.js";
 
 const projects = [
   {
-    projectId: '123456789',
-    title: 'Dog Shelter',
+    projectId: "123456789",
+    title: "Dog Shelter",
     media: [
-      'https://media.4-paws.org/a/9/b/d/a9bd2520c2a7c941680bbfc56182ed5615e7cd3c/VIER%20PFOTEN_2016-09-18_081-1927x1333.jpg',
+      "https://media.4-paws.org/a/9/b/d/a9bd2520c2a7c941680bbfc56182ed5615e7cd3c/VIER%20PFOTEN_2016-09-18_081-1927x1333.jpg",
     ],
-    body: 'Donate now to fund animal rescue organizations, provide affordable equipment for wildlife search and rescue, and support adoptable cats, dogs, and other pets. We also looking for people, who can create a short video for us, to be played in local tv',
+    description:
+      "Donate now to fund animal rescue organizations, provide affordable equipment for wildlife search and rescue, and support adoptable cats, dogs, and other pets. We also looking for people, who can create a short video for us, to be played in local tv",
     goal: 500,
-    contributions: [{ amount: 5, id: 'adsfasfsadfda' }],
-    skills: ['Video Editing', 'Short video Ads', 'Camera'],
-    tags: ['Filming', 'Editing'],
-    location: 'Berlin',
-    organization: 'Dog Shelter Berlin',
+    contributions: [{ amount: 5, id: "adsfasfsadfda" }],
+    skills: ["Video Editing", "Short video Ads", "Camera"],
+    tags: ["Filming", "Editing"],
+    location: "Berlin",
+    organization: "Dog Shelter Berlin",
   },
 
   {
-    title: 'Web-page for local orphanage ',
+    title: "Web-page for local orphanage ",
     media: [
-      'https://upload.wikimedia.org/wikipedia/commons/0/06/St._John%27s_Orphanage_in_2015.jpg',
+      "https://upload.wikimedia.org/wikipedia/commons/0/06/St._John%27s_Orphanage_in_2015.jpg",
     ],
-    body: 'Help with the creation of web-page for a local orphanages. Donate, or come and share your skills with kids.',
+    description:
+      "Help with the creation of web-page for a local orphanages. Donate, or come and share your skills with kids.",
     goal: 450,
-    contributions: [{ amount: 10, id: 'adsfasfsadfda2' }],
-    skills: ['Web-development', 'Online-sites creation'],
-    tags: ['Web Page', 'Web-developer'],
-    location: 'Reinikendorf',
-    organization: 'Save the Children Deutschland',
+    contributions: [{ amount: 10, id: "adsfasfsadfda2" }],
+    skills: ["Web-development", "Online-sites creation"],
+    tags: ["Web Page", "Web-developer"],
+    location: "Reinikendorf",
+    organization: "Save the Children Deutschland",
   },
 
   {
-    title: 'Dancing for kids',
+    title: "Dancing for kids",
     media: [
-      'https://upload.wikimedia.org/wikipedia/commons/3/38/Two_dancers.jpg',
+      "https://cms.qz.com/wp-content/uploads/2019/12/The-power-of-dance-e1575906582595.jpg?quality=75&strip=all&w=1600&h=900&crop=1",
     ],
-    body: "For kid's day this year, we want to give the children the opportunity to see, and experience dancing of various music genres and countries. If you can't donate, maybe You are a dancer and give our angels a show of your own.",
+    description:
+      "For kid's day this year, we want to give the children the opportunity to see, and experience dancing of various music genres and countries. If you can't donate, maybe You are a dancer and give our angels a show of your own.",
     goal: 250,
-    contributions: [{ amount: 20, id: 'adsfasfsadfda3' }],
-    skills: ['Dance', 'Choreography'],
-    tags: ['Dance'],
-    location: 'Wedding',
-    organization: 'Dance for The Kids',
+    contributions: [{ amount: 20, id: "adsfasfsadfda3" }],
+    skills: ["Dance", "Choreography"],
+    tags: ["Dance"],
+    location: "Wedding",
+    organization: "Dance for The Kids",
   },
 ];
 
-let userToken = JSON.parse(localStorage.getItem('user'));
+let userToken = JSON.parse(localStorage.getItem("user"));
 const initialState = userToken ? { loggedIn: true, ...userToken } : {};
 
 function App() {
@@ -66,7 +69,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/projects')
+      .get("http://localhost:8000/api/projects")
       .then((result) => setProjectList(result.data));
   }, []);
 
