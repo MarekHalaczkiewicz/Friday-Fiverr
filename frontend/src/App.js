@@ -10,6 +10,7 @@ import Subscription from './components/Subscription';
 import Navbar from './components/Navbar';
 import axios from 'axios';
 import { LoginPage } from './components/LoginPage.js';
+import SearchBar from './SearchBar';
 
 const projects = [
   {
@@ -79,12 +80,17 @@ function App() {
   const [projectList, setProjectList] = useState(projects);
   const [user, setUser] = useState(initialState);
   const [focused, setFocused] = useState(0);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     axios
       .get('http://localhost:8000/api/projects')
       .then((result) => setProjectList(result.data));
   }, []);
+
+  const filteredProjects = projectList.filter((project) =>
+    project.location.toLocaleLowerCase().includes(search)
+  );
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
@@ -93,9 +99,9 @@ function App() {
           <div className="App">
             <Navbar user={user} setUser={setUser} />
             <CarouselContainer />
-
+            <SearchBar keyword={search} setKeyword={setSearch} />
             <div className="bottom">
-              {projectList.map((project, i) => {
+              {filteredProjects.map((project, i) => {
                 return (
                   <div className="cards-container">
                     <Card
