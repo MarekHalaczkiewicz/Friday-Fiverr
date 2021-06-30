@@ -1,19 +1,33 @@
 import React, { useState } from "react";
 import "./subscription.css";
+import axios from "axios";
 
 export const Subscription = () => {
-  const [value, setValue] = useState("");
+  const [name, setName] = useState("");
+  const [url, setUrl] = useState("");
+  const [skillset, setSkillset] = useState("");
+  const [pitch, setPitch] = useState("");
+  async function submitForm(e) {
+    e.preventDefault();
+    const bodyReq = {
+      name,
+      profileURL: url,
+      skillset,
+      pitch,
+    };
+    console.log(bodyReq);
+  }
   return (
     <div>
-      <form>
+      <form onSubmit={submitForm}>
         <h1>I want to work on this project</h1>
         <label>
           Name:
           <input
             type="text"
             placeholder="Your Name"
-            // value={this.state.value}
-            // onChange={this.handleChange}
+            value={name}
+            onChange={(event) => setName(event.target.value)}
           />
         </label>
         <label>
@@ -21,8 +35,8 @@ export const Subscription = () => {
           <input
             type="text"
             placeholder="Your Fiverr URL"
-            // value={this.state.value}
-            // onChange={this.handleChange}
+            value={url}
+            onChange={(event) => setUrl(event.target.value)}
           />
         </label>
         <label>
@@ -30,8 +44,8 @@ export const Subscription = () => {
           <input
             type="text"
             placeholder="Name project relevant skills"
-            // value={this.state.value}
-            // onChange={this.handleChange}
+            value={skillset}
+            onChange={(event) => setSkillset(event.target.value)}
           />
         </label>
         <label>
@@ -39,8 +53,8 @@ export const Subscription = () => {
           <input
             type="text"
             placeholder="Why would you like the job?"
-            // value={this.state.value}
-            // onChange={this.handleChange}
+            value={pitch}
+            onChange={(event) => setPitch(event.target.value)}
           />
         </label>
         <input type="submit" value="Submit" />
