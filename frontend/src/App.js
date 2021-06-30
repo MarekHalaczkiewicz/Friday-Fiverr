@@ -6,7 +6,7 @@ import Card from './components/Card';
 import Modal from './components/Modal';
 import CarouselContainer from './components/CarouselContainer.js';
 import Subscription from './components/Subscription';
-import Donate from './components/Donate';
+// import Donate from "./components/Donate";
 import Navbar from './components/Navbar';
 import axios from 'axios';
 import { LoginPage } from './components/LoginPage.js';
@@ -124,9 +124,9 @@ function App() {
         <Route path="/subscribe">
           <Subscription />
         </Route>
-        <Route path="/donate">
+        {/* <Route path="/donate">
           <Donate />
-        </Route>
+        </Route> */}
         <Route path="/login">
           <LoginPage user={user} setUser={setUser} />
         </Route>
