@@ -21,7 +21,7 @@ const projects = [
     description:
       'Donate now to fund animal rescue organizations, provide affordable equipment for wildlife search and rescue, and support adoptable cats, dogs, and other pets. We also looking for people, who can create a short video for us, to be played in local tv',
     goal: 500,
-    contributions: [{ amount: 5, id: 'adsfasfsadfda' }],
+    contributors: [{ amount: 5, id: 'adsfasfsadfda' }],
     skills: ['Video Editing', 'Short video Ads', 'Camera'],
     tags: ['Filming', 'Editing'],
     location: 'Berlin',
@@ -40,7 +40,7 @@ const projects = [
     description:
       'Help with the creation of web-page for a local orphanages. Donate, or come and share your skills with kids.',
     goal: 450,
-    contributions: [{ amount: 10, id: 'adsfasfsadfda2' }],
+    contributors: [{ amount: 10, id: 'adsfasfsadfda2' }],
     skills: ['Web-development', 'Online-sites creation'],
     tags: ['Web Page', 'Web-developer'],
     location: 'Reinikendorf',
@@ -59,7 +59,7 @@ const projects = [
     description:
       "For kid's day this year, we want to give the children the opportunity to see, and experience dancing of various music genres and countries. If you can't donate, maybe You are a dancer and give our angels a show of your own.",
     goal: 250,
-    contributions: [{ amount: 20, id: 'adsfasfsadfda3' }],
+    contributors: [{ amount: 20, id: 'adsfasfsadfda3' }],
     skills: ['Dance', 'Choreography'],
     tags: ['Dance'],
     location: 'Wedding',
