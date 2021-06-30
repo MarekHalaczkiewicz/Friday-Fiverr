@@ -10,10 +10,12 @@ const schema = new Schema({
     type: String,
     required: true,
   },
-  media: {
-    type: String,
-    required: true,
-  },
+  media: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
   goal: {
     type: Number,
     required: true,
