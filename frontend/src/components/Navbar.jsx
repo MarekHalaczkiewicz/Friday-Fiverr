@@ -18,9 +18,11 @@ const Navbar = ({ user, setUser }) => {
         <li>
           <a href="#">Create a Project</a>
         </li>
+        <li>
+          <a href="#">{user.loggedIn && user.username}</a>
+        </li>
       </ul>
       <div className="nav-section2">
-        {user.loggedIn && <h2>{user.username}</h2>}
         {user.loggedIn ? (
           <button
             className="login-button"

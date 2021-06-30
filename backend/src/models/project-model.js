@@ -39,12 +39,8 @@ const schema = new Schema({
     },
   ],
   location: {
-    latitude: {
-      type: String,
-    },
-    longitude: {
-      type: String,
-    },
+    type: String,
+    required: true,
   },
   organization: {
     name: {
@@ -57,26 +53,25 @@ const schema = new Schema({
     account: {
       type: String,
     },
-    contractor: {
-      name: {
-        type: String,
-        required: false,
-      },
-      profileURL: {
-        type: String,
-        required: false,
-      },
-      skillset: {
-        type: String,
-        required: false
-      },
-      pitch: {
-        type: String,
-        required: false
-      },
-  
   },
-
+  contractor: {
+    name: {
+      type: String,
+      required: false,
+    },
+    profileURL: {
+      type: String,
+      required: false,
+    },
+    skillset: {
+      type: String,
+      required: false,
+    },
+    pitch: {
+      type: String,
+      required: false,
+    },
+  },
   createdDate: { type: Date, default: Date.now },
 });
 
