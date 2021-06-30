@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
@@ -57,24 +57,24 @@ const schema = new Schema({
     account: {
       type: String,
     },
-    contractor: {
-      name: {
-        type: String,
-        required: false,
-      },
-      profileURL: {
-        type: String,
-        required: false,
-      },
-      skillset: {
-        type: String,
-        required: false
-      },
-      pitch: {
-        type: String,
-        required: false
-      },
-  
+  },
+  contractor: {
+    name: {
+      type: String,
+      required: false,
+    },
+    profileURL: {
+      type: String,
+      required: false,
+    },
+    skillset: {
+      type: String,
+      required: false,
+    },
+    pitch: {
+      type: String,
+      required: false,
+    },
   },
 
   createdDate: { type: Date, default: Date.now },
@@ -89,4 +89,4 @@ const schema = new Schema({
 //   },
 // });
 
-module.exports = mongoose.model('Project', schema);
+module.exports = mongoose.model("Project", schema);
