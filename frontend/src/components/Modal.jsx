@@ -1,9 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
-import "./Modal.css";
-import UserContext from "../UserContext";
-import axios from "axios";
-import { useHistory } from "react-router-dom";
-import ProgressBar from "./ProgressBar";
+import React, { useState, useContext, useEffect } from 'react';
+import './Modal.css';
+import UserContext from '../UserContext';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import ProgressBar from './ProgressBar';
 
 function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
   const history = useHistory();
@@ -45,7 +45,7 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
         console.log(response.data);
       });
 
-    await axios.get("http://localhost:8000/api/projects").then((result) => {
+    await axios.get('http://localhost:8000/api/projects').then((result) => {
       console.log(projectList);
       setProjectList(result.data);
       console.log(projectList);
@@ -124,7 +124,7 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
               </p>
               <p>{`${total} / ${goal}€`}</p>
               <ProgressBar
-                bgcolor={"#6a1b9a"}
+                bgcolor={'#6a1b9a'}
                 completed={Math.floor((total / goal) * 100)}
               />
               <p>
@@ -142,9 +142,8 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
             </div>
             <form onSubmit={handleSubmit}>
               <label>
-                <strong>Amount: </strong>
+                Amount:
                 <input
-                  className="input"
                   type="number"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}

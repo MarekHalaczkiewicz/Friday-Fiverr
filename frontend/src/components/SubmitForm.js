@@ -32,6 +32,8 @@ function Form({ setProjectList }) {
     await axios
       .get('http://localhost:8000/api/projects')
       .then((result) => setProjectList(result.data));
+
+    window.alert('Thanks for submitting your project');
   };
   return (
     <form onSubmit={handleSubmit}>

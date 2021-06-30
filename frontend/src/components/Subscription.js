@@ -23,6 +23,7 @@ export const Subscription = ({ id }) => {
       .then((response) => {
         console.log(response.data);
       });
+    window.alert('Thanks for your application');
 
     history.push('/');
   }
