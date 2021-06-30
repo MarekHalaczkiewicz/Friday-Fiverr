@@ -27,9 +27,9 @@ export const Subscription = ({ id }) => {
     history.push('/');
   }
   return (
-    <div>
-      <form onSubmit={submitForm}>
-        <h1>I want to work on this project</h1>
+    <form className="formcontainer" onSubmit={submitForm}>
+      <h1 className="formcontainertitle">I want to work on this project</h1>
+      <div className="labelcontainer">
         <label>
           Name:
           <input
@@ -66,16 +66,16 @@ export const Subscription = ({ id }) => {
             onChange={(event) => setPitch(event.target.value)}
           />
         </label>
-        <input type="submit" value="Submit" />
-        {/* <textarea
+      </div>
+      <input className="submitbutton" type="submit" value="Submit" />
+      {/* <textarea
           className="textarea"
           placeholder="0/200"
           maxLength="200"
           onChange={(event) => setValue(event.target.value)}
           value={value}
         ></textarea> */}
-      </form>
-    </div>
+    </form>
   );
 };
 

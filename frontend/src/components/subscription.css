@@ -1,4 +1,32 @@
-.textarea {
-  background-color: floralwhite;
+.formcontainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #0d084d;
   text-align: center;
+
+  font: 20px helvetica, sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.formcontainertitle {
+  font: 32px helvetica, sans-serif;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.submitbutton {
+  border-radius: 25px;
+  background-color: #d7d2ff;
+  border: 2px;
+  border-color: #0d084d;
+  padding: 5px;
+}
+
+.labelcontainer {
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+  padding: 10px;
 }
