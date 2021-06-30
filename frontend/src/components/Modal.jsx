@@ -25,7 +25,7 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
 
   useEffect(() => {
     const tempTotal = project.contributors.reduce(
-      (total, obj) => obj.amount + total,
+      (total, obj) => (obj.amount ? obj.amount + total : total),
       0
     );
     setTotal(tempTotal);

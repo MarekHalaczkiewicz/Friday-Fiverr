@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './subscription.css';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 export const Subscription = ({ id }) => {
   const [name, setName] = useState('');
   const [url, setUrl] = useState('');
   const [skillset, setSkillset] = useState('');
   const [pitch, setPitch] = useState('');
+  const history = useHistory();
   async function submitForm(e) {
     e.preventDefault();
     const bodyReq = {
@@ -21,6 +23,8 @@ export const Subscription = ({ id }) => {
       .then((response) => {
         console.log(response.data);
       });
+
+    history.push('/');
   }
   return (
     <div>
