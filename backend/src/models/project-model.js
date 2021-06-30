@@ -39,12 +39,8 @@ const schema = new Schema({
     },
   ],
   location: {
-    latitude: {
-      type: String,
-    },
-    longitude: {
-      type: String,
-    },
+    type: String,
+    required: true,
   },
   organization: {
     name: {
