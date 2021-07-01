@@ -91,6 +91,10 @@ function App() {
       .then((result) => setProjectList(result.data));
   }, []);
 
+  useEffect(() => {
+    console.log(projectList);
+  }, [projectList]);
+
   const filteredProjects = projectList.filter(
     (project) =>
       project.location && project.location.toLocaleLowerCase().includes(search)
@@ -152,7 +156,7 @@ function App() {
         </Route>
         <Route path="/my-jobs">
           {<MyJobs userProjects={userProjects} />}
-          <WebcamStreamCapture />
+          <WebcamStreamCapture setProjectList={setProjectList} />
         </Route>
       </Switch>
     </UserContext.Provider>
