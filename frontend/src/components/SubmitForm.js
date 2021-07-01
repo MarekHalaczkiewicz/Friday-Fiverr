@@ -7,6 +7,7 @@ function Form({ setProjectList }) {
   const history = useHistory();
   const { user } = useContext(UserContext);
   const [projectName, setProjectName] = useState("");
+  const [projectMedia, setProjectMedia] = useState("");
   const [projectDescription, setProjectDescription] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -21,6 +22,7 @@ function Form({ setProjectList }) {
     await axios
       .post("http://localhost:8000/api/projects/", {
         title: projectName,
+        media: projectMedia,
         description: projectDescription,
         organization: { name: organization, contact: email, account: user.id },
         location,
@@ -33,7 +35,7 @@ function Form({ setProjectList }) {
       .get("http://localhost:8000/api/projects")
       .then((result) => setProjectList(result.data));
 
-    window.alert('Thanks for submitting your project');
+    window.alert("Thanks for submitting your project");
   };
   return (
     <form className="formcontainer" onSubmit={handleSubmit}>
@@ -51,8 +53,19 @@ function Form({ setProjectList }) {
           />
         </label>
         <label className="labelcontainer">
-          Project description
+          Project Media
           <input
+            value={projectMedia}
+            onChange={(e) => setProjectMedia(e.target.value)}
+            placeholder="Project Media"
+            type="URL"
+            name="projectMedia"
+            required
+          />
+        </label>
+        <label className="labelcontainer">
+          Project description
+          <textarea
             value={projectDescription}
             onChange={(e) => setProjectDescription(e.target.value)}
             placeholder="Please describe the project"
@@ -91,17 +104,6 @@ function Form({ setProjectList }) {
             placeholder="Location"
             type="text"
             name="location"
-            required
-          />
-        </label>
-        <label className="labelcontainer">
-          Contributors
-          <input
-            value={contributors}
-            onChange={(e) => setContributors(e.target.value)}
-            placeholder="Contributors"
-            type="text"
-            name="contributors"
             required
           />
         </label>
