@@ -16,6 +16,9 @@ const schema = new Schema({
       required: true,
     },
   ],
+  video: {
+    type: String,
+  },
   goal: {
     type: Number,
     required: true,
@@ -54,24 +57,28 @@ const schema = new Schema({
       type: String,
     },
   },
-  contractor: {
-    name: {
-      type: String,
-      required: false,
+  contractor: [
+    {
+      name: {
+        type: String,
+      },
+      profileURL: {
+        type: String,
+      },
+      skillset: {
+        type: String,
+      },
+      pitch: {
+        type: String,
+      },
+      videoURL: {
+        type: String,
+      },
+      userId: {
+        type: String,
+      },
     },
-    profileURL: {
-      type: String,
-      required: false,
-    },
-    skillset: {
-      type: String,
-      required: false,
-    },
-    pitch: {
-      type: String,
-      required: false,
-    },
-  },
+  ],
   createdDate: { type: Date, default: Date.now },
 });
 

@@ -9,6 +9,7 @@ module.exports = {
   getById,
   create,
   update,
+  uploadVideo,
   delete: _delete,
 };
 
@@ -30,10 +31,14 @@ async function findAndUpdate(projectId, projectParam) {
 }
 
 async function findAndUpdateOrg(projectId, projectParam) {
-  const { name, profileURL, skillset, pitch } = projectParam;
+  const { name, profileURL, skillset, pitch, userId, videoURL } = projectParam;
   const updatedProject = await Project.findOneAndUpdate(
     { _id: projectId },
-    { contractor: { name, profileURL, skillset, pitch } },
+    {
+      $push: {
+        contractor: { name, profileURL, skillset, pitch, userId, videoURL },
+      },
+    },
     // { title: 'King in the North' },
     // If `new` isn't true, `findOneAndUpdate()` will return the
     // document as it was _before_ it was updated.
@@ -48,9 +53,23 @@ async function getById(id) {
 
 async function create(projectParam) {
   const project = new Project(projectParam);
-
+  const id = project.id;
   // save project
   await project.save();
+  return id;
+}
+
+async function uploadVideo(req) {
+  // console.log(req.file); // see what got uploaded
+
+  let uploadLocation = __dirname + '/public/' + req.file.originalname; // where to save the file to. make sure the incoming name has a .wav extension
+
+  await fs.writeFileSync(
+    uploadLocation,
+    Buffer.from(new Uint8Array(req.file.buffer))
+  ); // write the blob to the server as a file
+
+  return uploadLocation;
 }
 
 async function update(id, projectParam) {

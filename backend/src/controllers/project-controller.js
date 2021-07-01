@@ -3,7 +3,7 @@ const projectService = require('../services/project-services');
 module.exports.register = (req, res, next) => {
   projectService
     .create(req.body)
-    .then(() => res.json({}))
+    .then((id) => res.json({ id }))
     .catch((err) => next(err));
 };
 
@@ -53,5 +53,12 @@ module.exports._delete = (req, res, next) => {
   projectService
     .delete(req.params.id)
     .then(() => res.json({}))
+    .catch((err) => next(err));
+};
+
+module.exports.uploadVideo = (req, res, next) => {
+  projectService
+    .uploadVideo(req)
+    .then((location) => res.json({ location }))
     .catch((err) => next(err));
 };

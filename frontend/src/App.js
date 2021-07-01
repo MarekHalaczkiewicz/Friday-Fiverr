@@ -13,6 +13,7 @@ import { LoginPage } from './components/LoginPage.js';
 import SearchBar from './components/SearchBar';
 import Form from './components/SubmitForm';
 import MyJobs from './components/MyJobs';
+import WebcamStreamCapture from './components/WebcamStreamCapture';
 
 const projects = [
   {
@@ -96,7 +97,8 @@ function App() {
   );
 
   const userProjects = projectList.filter(
-    (project) => project.contractor && project.contractor.id === user.id
+    (project) =>
+      project.organization.account && project.organization.account === user.id
   );
 
   return (
@@ -149,7 +151,8 @@ function App() {
           <Form setProjectList={setProjectList} />
         </Route>
         <Route path="/my-jobs">
-          <MyJobs />
+          {<MyJobs userProjects={userProjects} />}
+          <WebcamStreamCapture />
         </Route>
       </Switch>
     </UserContext.Provider>
