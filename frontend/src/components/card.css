@@ -41,18 +41,18 @@
 }
 .button {
   padding: 9px 25px;
-  background-color: #584aff;
-  border: none;
+  background-color: #b2a8fa;
+  border: 2px solid #0d084d;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease 0s;
   font-weight: 600;
   font-size: 10px;
-  color: rgb(255, 255, 255);
+  color: #0d084d;
   text-decoration: none;
 }
 
 .button:hover {
-  background-color: #0f643c;
-  color: rgb(7, 160, 127);
+  color: white;
+  background-color: #0d084d;
 }
