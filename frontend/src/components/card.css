@@ -22,10 +22,15 @@
 }
 
 .card-content {
-  height: 350px;
+  height: 300px;
   text-align: center;
   margin: 1rem;
   margin-top: 0.5rem;
+}
+
+.location {
+  display: flex;
+  justify-content: center;
 }
 
 .button-container {

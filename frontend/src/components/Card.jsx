@@ -21,12 +21,12 @@ function Card({
         <div>
           <h3 className="card-title"> {title}</h3>
         </div>
-        <div className="card-body">
-          <p>{body}</p>
-          <strong>
-            <p>Location: {location}</p>
-          </strong>
-        </div>
+        <p>{body}</p>
+      </div>
+      <div className="location">
+        <strong>
+          <p>Location: {location}</p>
+        </strong>
       </div>
       <div className="donation-progress"></div>
       <div className="button-container">
