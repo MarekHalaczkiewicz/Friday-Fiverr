@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import './subscription.css';
+import './submitform.css';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../UserContext';
@@ -10,8 +10,8 @@ export const Subscription = ({ id, setProjectList }) => {
   // const { user } = useContext(UserContext);
   // const [name, setName] = useState('');
   // const [url, setUrl] = useState('');
-  // const [skillset, setSkillset] = useState('');
-  // const [pitch, setPitch] = useState('');
+  const [skillset, setSkillset] = useState('');
+  const [pitch, setPitch] = useState('');
   // const history = useHistory();
 
   // async function submitForm(e) {
@@ -40,13 +40,30 @@ export const Subscription = ({ id, setProjectList }) => {
   //   history.push('/');
   // }
   return (
-    <div className="formcontainer">
-      {/* <form className="formcontainer" onSubmit={submitForm}> */}
+    <form className="formcontainer" /* onSubmit={submitForm} */>
+      <h1 className="formcontainertitle">I want to work on this project</h1>
 
+      <div className="input-group">
+        <textarea
+          className="form-control"
+          type="text"
+          placeholder="Name project relevant skills"
+          value={skillset}
+          onChange={(event) => setSkillset(event.target.value)}
+        />
+      </div>
+      <div className="input-group">
+        <textarea
+          className="form-control"
+          type="text"
+          placeholder="Why would you like the job?"
+          value={pitch}
+          onChange={(event) => setPitch(event.target.value)}
+        />
+      </div>
       <WebcamStreamCapture id={id} setProjectList={setProjectList} />
-
-      {/* </form> */}
-    </div>
+      <input className="button" type="submit" value="Submit" />
+    </form>
   );
 };
 

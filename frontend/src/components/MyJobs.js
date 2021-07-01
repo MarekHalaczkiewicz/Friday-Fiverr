@@ -3,15 +3,16 @@ import Application from './Application';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import CardJob from './CardJob';
+import './MyJobs.css';
 
 const MyJobs = ({ userProjects }) => {
   const [show, setShow] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <>
+    <div className="personal-jobs">
       {!show && (
-        <div>
+        <>
           {userProjects.map((project, i) => {
             return (
               <CardJob
@@ -41,7 +42,7 @@ const MyJobs = ({ userProjects }) => {
               </div> */
             );
           })}
-        </div>
+        </>
       )}
       {show && (
         <div>
@@ -57,7 +58,7 @@ const MyJobs = ({ userProjects }) => {
           })}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

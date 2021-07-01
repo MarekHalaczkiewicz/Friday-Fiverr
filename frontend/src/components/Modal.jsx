@@ -73,12 +73,12 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
           <div className="bodyLeft">
             <p>{description}</p>
             <p>
-              <strong>Location: </strong>
-              {location}
-            </p>
-            <p>
               <strong>organization: </strong>
               {organization.name}
+            </p>
+            <p>
+              <strong>Location: </strong>
+              {location}
             </p>
           </div>
           <div className="footerLeft">
@@ -105,8 +105,8 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
                 to work. Thanks to the special project of Fiverr, by helping
                 others, you will help yourself and made your account more
                 visible for people looking for freelancers, or even get more
-                stars! Just click on "Take Part" button, and fill out the help
-                form
+                stars! Just click on the "Take Part" button, and fill out the
+                help form
               </p>
               <p>
                 <strong>Skills needed: </strong>

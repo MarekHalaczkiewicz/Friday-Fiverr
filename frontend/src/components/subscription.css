@@ -1,16 +1,25 @@
-.formcontainer {
+/* .formcontainer {
   display: flex;
   flex-direction: column;
   background: linear-gradient(to right, #c0392b, #8e44ad);
   text-align: center;
-  height: 100vh;
   justify-content: center;
   align-items: center;
   font: 20px helvetica, sans-serif;
   font-weight: 400;
   color: #ffffff;
-}
 
+  width: 50%;
+  display: fke;
+  display: flex;
+  flex: dire;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+} */
+
+/* 
 .formcontainertitle {
   font: 32px helvetica, sans-serif;
   font-weight: bold;
@@ -23,7 +32,7 @@
   border: 2px;
   border-color: #0d084d;
   padding: 5px;
-  width: 40%;
+  width: 150px;
   margin-top: 5px;
 }
 
@@ -36,4 +45,4 @@
   text-align: center;
   padding: 10px;
   border-radius: 30%;
-}
+} */

@@ -8,6 +8,7 @@
   margin-top: 30px;
   margin-bottom: 30px;
   border-radius: 15px;
+  text-align: center;
 }
 .card-container:hover {
   box-shadow: 0px 0px 15px 0px;
@@ -21,8 +22,8 @@
   padding: 10px;
 }
 
-.card-content {
-  height: 300px;
+.card-content-personal {
+  height: 150px;
   text-align: center;
   margin: 1rem;
   margin-top: 0.5rem;

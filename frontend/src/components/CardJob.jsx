@@ -24,17 +24,17 @@ function CardJob({
       <div className="image-container">
         <img src={imageUrl} alt="" />
       </div>
-      <div className="card-content">
+      <div className="card-content-personal">
         <div>
           <h3 className="card-title"> {title}</h3>
         </div>
       </div>
-      <div>
-        <ProgressBar
-          bgcolor={'#6a1b9a'}
-          completed={Math.floor((total / goal) * 100)}
-        />
-      </div>
+      <h3>{`${total} / ${goal}€`}</h3>
+      <ProgressBar
+        bgcolor={'#6a1b9a'}
+        completed={Math.floor((total / goal) * 100)}
+      />
+
       <div className="location">
         <strong>
           <p>Location: {location}</p>
