@@ -63,7 +63,7 @@
 }
 
 .modalContainerLeft .footerLeft {
-  flex: 20%;
+  flex: 40%;
   display: flex;
   justify-content: center;
   align-items: center;

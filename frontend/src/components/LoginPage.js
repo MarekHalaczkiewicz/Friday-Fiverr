@@ -1,12 +1,13 @@
-import { useState, useContext } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
-import UserContext from '../UserContext';
+import { useState, useContext } from "react";
+import { useLocation, useHistory } from "react-router-dom";
+import UserContext from "../UserContext";
+import "../components/LoginPage.css";
 
 const LoginPage = () => {
   const { setUser } = useContext(UserContext);
   const [inputs, setInputs] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
   const { username, password } = inputs;
   const location = useLocation();
@@ -24,7 +25,7 @@ const LoginPage = () => {
     setSubmitted(true);
     if (username && password) {
       // get return url from location state or default to home page
-      const { from } = location.state || { from: { pathname: '/' } };
+      const { from } = location.state || { from: { pathname: "/" } };
       //   dispatch(userActions.login(username, password, from));
       login(username, password, from);
     }
@@ -32,8 +33,8 @@ const LoginPage = () => {
 
   function login(username, password, from) {
     const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
     };
 
@@ -41,7 +42,7 @@ const LoginPage = () => {
       .then(handleResponse)
       .then((user) => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem("user", JSON.stringify(user));
         setUser({ ...user, loggedIn: true });
         console.log({ ...user, loggedIn: true });
         history.push(from);
@@ -51,7 +52,7 @@ const LoginPage = () => {
 
   function logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('user');
+    localStorage.removeItem("user");
   }
 
   function handleResponse(response) {
@@ -73,18 +74,19 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="col-lg-8 offset-lg-2">
-      <h2>Login</h2>
+    <div className="Login">
       <form name="form" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Username</label>
+          <label>
+            <strong>Username:</strong>
+          </label>
           <input
             type="text"
             name="username"
             value={username}
             onChange={handleChange}
             className={
-              'form-control' + (submitted && !username ? ' is-invalid' : '')
+              "form-control" + (submitted && !username ? " is-invalid" : "")
             }
           />
           {submitted && !username && (
@@ -92,26 +94,28 @@ const LoginPage = () => {
           )}
         </div>
         <div className="form-group">
-          <label>Password</label>
+          <label>
+            <strong>Password:</strong>
+          </label>
           <input
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
             className={
-              'form-control' + (submitted && !password ? ' is-invalid' : '')
+              "form-control" + (submitted && !password ? " is-invalid" : "")
             }
           />
           {submitted && !password && (
             <div className="invalid-feedback">Password is required</div>
           )}
         </div>
-        <div className="form-group">
-          <button className="btn btn-primary">
+        <div className="form-group2">
+          <button className="button">
             {/* {user.loggedIn && (
               <span className="spinner-border spinner-border-sm mr-1"></span>
             )} */}
-            Login
+            Log in
           </button>
           {/* <Link to="/register" className="btn btn-link">
             Register
