@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import "./card.css";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import './card.css';
+import { useHistory } from 'react-router-dom';
 
 function Card({
   setModalOpen,
@@ -33,6 +33,7 @@ function Card({
         <button
           className="button"
           onClick={() => {
+            window.scrollTo(0, 0);
             setFocused(index);
             setModalOpen(true);
           }}
