@@ -84,6 +84,7 @@ function App() {
   const [user, setUser] = useState(initialState);
   const [focused, setFocused] = useState(0);
   const [search, setSearch] = useState('');
+  const [showContractors, setShowContractors] = useState(false);
 
   useEffect(() => {
     axios
@@ -107,9 +108,9 @@ function App() {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <Navbar user={user} setUser={setUser} setModalOpen={setModalOpen} />
       <Switch>
         <Route exact path="/">
+          <Navbar user={user} setUser={setUser} setModalOpen={setModalOpen} />
           <CarouselContainer />
           <div className="App">
             <br></br>
@@ -143,19 +144,33 @@ function App() {
           </div>
         </Route>
         <Route path="/subscribe">
+          <Navbar user={user} setUser={setUser} setModalOpen={setModalOpen} />
           <Subscription
             id={projectList.length && projectList[focused]._id}
             setProjectList={setProjectList}
           />
         </Route>
         <Route path="/login">
+          <Navbar user={user} setUser={setUser} setModalOpen={setModalOpen} />
           <LoginPage user={user} setUser={setUser} />
         </Route>
         <Route path="/submit">
+          <Navbar user={user} setUser={setUser} setModalOpen={setModalOpen} />
           <Form setProjectList={setProjectList} />
         </Route>
         <Route path="/my-jobs">
-          <MyJobs userProjects={userProjects} />
+          <Navbar
+            customClass="custom-navbar"
+            user={user}
+            setUser={setUser}
+            setModalOpen={setModalOpen}
+            showContractors={showContractors}
+          />
+          <MyJobs
+            userProjects={userProjects}
+            showContractors={showContractors}
+            setShowContractors={setShowContractors}
+          />
           {/* <WebcamStreamCapture setProjectList={setProjectList} /> */}
         </Route>
       </Switch>

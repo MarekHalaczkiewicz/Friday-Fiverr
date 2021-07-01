@@ -3,11 +3,19 @@ import '../components/navbar.css';
 import logo from '../Assets/logo.png';
 import { useHistory } from 'react-router-dom';
 
-const Navbar = ({ user, setUser, setModalOpen }) => {
+const Navbar = ({
+  user,
+  setUser,
+  setModalOpen,
+  customClass = '',
+  showContractors,
+}) => {
   const history = useHistory();
 
+  const customClassName =
+    customClass && showContractors ? 'custom-navbar' : 'navbar';
   return (
-    <nav className="navbar">
+    <nav className={customClassName}>
       <div
         className="nav-logo"
         onClick={() => {

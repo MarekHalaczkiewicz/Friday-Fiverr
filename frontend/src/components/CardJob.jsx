@@ -9,8 +9,8 @@ function CardJob({
   imageUrl,
   location,
   setCurrentIndex,
-  setShow,
-  contributors,
+  setShowContractors,
+  contributors = [],
   goal,
 }) {
   const history = useHistory();
@@ -34,7 +34,6 @@ function CardJob({
         bgcolor={'#6a1b9a'}
         completed={Math.floor((total / goal) * 100)}
       />
-
       <div className="location">
         <strong>
           <p>Location: {location}</p>
@@ -45,7 +44,7 @@ function CardJob({
           className="button"
           onClick={() => {
             setCurrentIndex(index);
-            setShow(true);
+            setShowContractors(true);
           }}
         >
           <a>View more</a>

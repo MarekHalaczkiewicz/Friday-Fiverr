@@ -2,6 +2,20 @@
   display: flex;
   width: 100%;
   justify-content: space-around;
-  padding-left: 10%;
-  padding-right: 10%;
+}
+
+.personal-jobs .carousel-control-next {
+  display: none;
+}
+.personal-jobs .carousel-control-prev {
+  display: none;
+}
+
+.carousel-personal {
+  width: 100%;
+}
+
+.job-contractors-container {
+  display: flex;
+  justify-content: space-around;
 }

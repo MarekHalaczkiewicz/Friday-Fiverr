@@ -3,15 +3,16 @@ import Application from './Application';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import CardJob from './CardJob';
+import VideoCard from './VideoCard';
 import './MyJobs.css';
+import CarouselContainerPersonal from './CarouselContainerPersonal';
 
-const MyJobs = ({ userProjects }) => {
-  const [show, setShow] = useState(false);
+const MyJobs = ({ userProjects, showContractors, setShowContractors }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
     <div className="personal-jobs">
-      {!show && (
+      {!showContractors && (
         <>
           {userProjects.map((project, i) => {
             return (
@@ -23,7 +24,7 @@ const MyJobs = ({ userProjects }) => {
                 contributors={project.contributors}
                 goal={project.goal}
                 setCurrentIndex={setCurrentIndex}
-                setShow={setShow}
+                setShowContractors={setShowContractors}
                 index={i}
               />
               /* <div key={`div-${i}`}>
@@ -44,18 +45,35 @@ const MyJobs = ({ userProjects }) => {
           })}
         </>
       )}
-      {show && (
-        <div>
-          <button
-            onClick={() => {
-              setShow(false);
-            }}
-          >
-            Close
-          </button>
-          {userProjects[currentIndex].contractor.map((c, i) => {
-            return <Application key={`app-${i}`} c={c} index={i} />;
-          })}
+      {showContractors && (
+        <div className="carousel-personal">
+          <CarouselContainerPersonal
+            imageUrl={userProjects[currentIndex].media[0]}
+          />
+          <div className="close">
+            <button
+              className="button"
+              onClick={() => {
+                setShowContractors(false);
+              }}
+            >
+              Back to list
+            </button>
+          </div>
+          <div className="job-contractors-container">
+            {userProjects[currentIndex].contractor.map((c, i) => {
+              return (
+                <VideoCard
+                  key={`app-${i}`}
+                  isVideo={true}
+                  imageUrl={c.videoURL}
+                  index={i}
+                  name={c.name}
+                  skillset={c.skillset}
+                />
+              );
+            })}
+          </div>
         </div>
       )}
     </div>

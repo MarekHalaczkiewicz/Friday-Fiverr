@@ -8,6 +8,20 @@
   align-items: center;
   padding: 10px 3%;
 }
+.custom-navbar {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 3%;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  background: transparent;
+}
 
 li,
 a,
