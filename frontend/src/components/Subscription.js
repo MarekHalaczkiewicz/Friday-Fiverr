@@ -1,15 +1,15 @@
-import React, { useState, useContext } from 'react';
-import './subscription.css';
-import axios from 'axios';
-import { useHistory } from 'react-router-dom';
-import UserContext from '../UserContext';
+import React, { useState, useContext } from "react";
+import "./subscription.css";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import UserContext from "../UserContext";
 
 export const Subscription = ({ id, setProjectList }) => {
   const { user } = useContext(UserContext);
-  const [name, setName] = useState('');
-  const [url, setUrl] = useState('');
-  const [skillset, setSkillset] = useState('');
-  const [pitch, setPitch] = useState('');
+  const [name, setName] = useState("");
+  const [url, setUrl] = useState("");
+  const [skillset, setSkillset] = useState("");
+  const [pitch, setPitch] = useState("");
   const history = useHistory();
   async function submitForm(e) {
     e.preventDefault();
@@ -23,18 +23,19 @@ export const Subscription = ({ id, setProjectList }) => {
 
     console.log(id);
     console.log(user.id);
+    console.log(bodyReq);
     await axios
       .post(`http://localhost:8000/api/projects/${id}/subscribe`, bodyReq)
       .then((response) => {
         console.log(response.data);
       });
-    window.alert('Thanks for your application');
+    window.alert("Thanks for your application");
 
     await axios
-      .get('http://localhost:8000/api/projects')
+      .get("http://localhost:8000/api/projects")
       .then((result) => setProjectList(result.data));
 
-    history.push('/');
+    history.push("/");
   }
   return (
     <form className="formcontainer" onSubmit={submitForm}>
