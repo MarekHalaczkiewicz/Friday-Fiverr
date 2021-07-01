@@ -1,9 +1,9 @@
-import React, { useState, useContext, useEffect } from 'react';
-import './Modal.css';
-import UserContext from '../UserContext';
-import axios from 'axios';
-import { useHistory } from 'react-router-dom';
-import ProgressBar from './ProgressBar';
+import React, { useState, useContext, useEffect } from "react";
+import "./Modal.css";
+import UserContext from "../UserContext";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import ProgressBar from "./ProgressBar";
 
 function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
   const history = useHistory();
@@ -45,7 +45,7 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
         console.log(response.data);
       });
 
-    await axios.get('http://localhost:8000/api/projects').then((result) => {
+    await axios.get("http://localhost:8000/api/projects").then((result) => {
       console.log(projectList);
       setProjectList(result.data);
       console.log(projectList);
@@ -74,7 +74,7 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
             <p>{description}</p>
             <p>
               <strong>Location: </strong>
-              {/* {location} */}
+              {location}
             </p>
             <p>
               <strong>organization: </strong>
@@ -88,21 +88,11 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
               }}
               id="cancelBtn"
             >
-              Cancel
+              Back
             </button>
           </div>
         </div>
         <div className="modalContainerRight">
-          <div className="titleCloseBtn">
-            <button
-              className="X"
-              onClick={() => {
-                setModalOpen(false);
-              }}
-            >
-              X
-            </button>
-          </div>
           <div className="donation">
             <div className="title">
               <h2>The way you can help</h2>
@@ -119,20 +109,20 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
                 form
               </p>
               <p>
-                <strong>Goal: </strong>
-                {goal}€
-              </p>
-              <p>{`${total} / ${goal}€`}</p>
-              <ProgressBar
-                bgcolor={'#6a1b9a'}
-                completed={Math.floor((total / goal) * 100)}
-              />
-              <p>
                 <strong>Skills needed: </strong>
                 {skills.map((skill) => {
                   return skill;
                 })}
               </p>
+              <p>
+                <strong>Goal: </strong>
+                {goal}€
+              </p>
+              <p>{`${total} / ${goal}€`}</p>
+              <ProgressBar
+                bgcolor={"#6a1b9a"}
+                completed={Math.floor((total / goal) * 100)}
+              />
               {/* <p>
                 <strong>tags: </strong>
                 {tags.map((tag) => {
@@ -142,12 +132,14 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
             </div>
             <form onSubmit={handleSubmit}>
               <label>
-                Amount:
+                <strong>Amount: </strong>
                 <input
+                  className="input"
                   type="number"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                 />
+                €
               </label>
               <div className="footerRight">
                 <button id="donation-btn" type="submit">
@@ -155,7 +147,7 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
                 </button>
                 <button
                   id="join-btn"
-                  onClick={() => history.push('/subscribe')}
+                  onClick={() => history.push("/subscribe")}
                 >
                   Take part
                 </button>
