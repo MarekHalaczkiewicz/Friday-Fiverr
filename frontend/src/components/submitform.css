@@ -1,7 +1,7 @@
 .formcontainer {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to right, #c0392b, #8e44ad);
+  background-color: #0d084d;
   text-align: center;
   height: 100vh;
   justify-content: center;

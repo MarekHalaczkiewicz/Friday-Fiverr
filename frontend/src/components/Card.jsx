@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import './card.css';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from "react";
+import "./card.css";
+import { useHistory } from "react-router-dom";
 
 function Card({
   setModalOpen,
@@ -18,8 +18,8 @@ function Card({
         <img src={imageUrl} alt="" />
       </div>
       <div className="card-content">
-        <div className="card-title">
-          <h3> {title}</h3>
+        <div>
+          <h3 className="card-title"> {title}</h3>
         </div>
         <div className="card-body">
           <p>{body}</p>
