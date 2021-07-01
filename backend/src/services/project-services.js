@@ -32,12 +32,12 @@ async function findAndUpdate(projectId, projectParam) {
 }
 
 async function findAndUpdateContractor(projectId, projectParam) {
-  const { name, profileURL, skillset, pitch, videoURL, userID } = projectParam;
+  const { name, skillset, videoURL, userID } = projectParam;
   const updatedProject = await Project.findOneAndUpdate(
     { _id: projectId },
     {
       $push: {
-        contractor: { name, profileURL, skillset, pitch, videoURL, userID },
+        contractor: { name, skillset, videoURL, userID },
       },
     },
     // { title: 'King in the North' },
@@ -61,8 +61,6 @@ async function create(projectParam) {
 }
 
 async function uploadVideo(req) {
-  console.log(req);
-  console.log(req.data);
   // console.log(req.file); // see what got uploaded
   let uploadLocation = __dirname + '/../../public/' + req.file.originalname; // where to save the file to. make sure the incoming name has a .webm extension
   fs.writeFileSync(

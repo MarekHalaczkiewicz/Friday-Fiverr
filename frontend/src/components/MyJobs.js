@@ -2,6 +2,7 @@ import ReactPlayer from 'react-player';
 import Application from './Application';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
+import CardJob from './CardJob';
 
 const MyJobs = ({ userProjects }) => {
   const [show, setShow] = useState(false);
@@ -13,7 +14,18 @@ const MyJobs = ({ userProjects }) => {
         <div>
           {userProjects.map((project, i) => {
             return (
-              <div key={`div-${i}`}>
+              <CardJob
+                key={`div-${i}`}
+                title={project.title}
+                imageUrl={project.media[0]}
+                location={project.location}
+                contributors={project.contributors}
+                goal={project.goal}
+                setCurrentIndex={setCurrentIndex}
+                setShow={setShow}
+                index={i}
+              />
+              /* <div key={`div-${i}`}>
                 <h3>{project.title}</h3>
                 <img source={project.media[0]} />
                 <button
@@ -26,7 +38,7 @@ const MyJobs = ({ userProjects }) => {
                 >
                   Show
                 </button>
-              </div>
+              </div> */
             );
           })}
         </div>

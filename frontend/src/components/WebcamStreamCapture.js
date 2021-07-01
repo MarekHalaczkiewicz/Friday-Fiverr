@@ -4,15 +4,7 @@ import axios from 'axios';
 import UserContext from '../UserContext';
 import { useHistory } from 'react-router-dom';
 
-const WebcamStreamCapture = ({
-  setProjectList,
-  id,
-  name,
-  profileURL,
-  skillset,
-  pitch,
-  setStep,
-}) => {
+const WebcamStreamCapture = ({ setProjectList, id }) => {
   function getFormattedTime() {
     var today = new Date();
     var y = today.getFullYear();
@@ -95,10 +87,8 @@ const WebcamStreamCapture = ({
   };
   const updateContractor = async () => {
     await axios.post(`http://localhost:8000/api/projects/${id}/subscribe`, {
-      name,
-      profileURL,
-      skillset,
-      pitch,
+      name: `${user.firstName} ${user.lastName}`,
+      skillset: user.skillset,
       videoURL: `${fileName}.webm`,
       userID: user.id,
     });
@@ -111,7 +101,6 @@ const WebcamStreamCapture = ({
   };
 
   const redirect = () => {
-    setStep(1);
     window.alert('Thanks for applying to this project!');
     history.push('/');
   };

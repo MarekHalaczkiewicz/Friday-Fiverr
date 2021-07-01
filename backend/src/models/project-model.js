@@ -62,13 +62,7 @@ const schema = new Schema({
       name: {
         type: String,
       },
-      profileURL: {
-        type: String,
-      },
       skillset: {
-        type: String,
-      },
-      pitch: {
         type: String,
       },
       videoURL: {
