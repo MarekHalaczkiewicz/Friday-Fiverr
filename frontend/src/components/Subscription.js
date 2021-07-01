@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
-import "./subscription.css";
+// import "./subscription.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import UserContext from "../UserContext";
+import "./submitform.css";
 
 export const Subscription = ({ id, setProjectList }) => {
   const { user } = useContext(UserContext);
@@ -40,52 +41,27 @@ export const Subscription = ({ id, setProjectList }) => {
   return (
     <form className="formcontainer" onSubmit={submitForm}>
       <h1 className="formcontainertitle">I want to work on this project</h1>
-      <div>
-        <label className="labelcontainer">
-          Name
-          <input
-            type="text"
-            placeholder="Your Name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
-        </label>
-        <label className="labelcontainer">
-          Fiverr
-          <input
-            type="text"
-            placeholder="Your Fiverr URL"
-            value={url}
-            onChange={(event) => setUrl(event.target.value)}
-          />
-        </label>
-        <label className="labelcontainer">
-          Skillset
-          <textarea
-            type="text"
-            placeholder="Name project relevant skills"
-            value={skillset}
-            onChange={(event) => setSkillset(event.target.value)}
-          />
-        </label>
-        <label className="labelcontainer">
-          Pitch
-          <textarea
-            type="text"
-            placeholder="Why would you like the job?"
-            value={pitch}
-            onChange={(event) => setPitch(event.target.value)}
-          />
-        </label>
+
+      <div className="input-group">
+        <textarea
+          className="form-control"
+          type="text"
+          placeholder="Name project relevant skills"
+          value={skillset}
+          onChange={(event) => setSkillset(event.target.value)}
+        />
       </div>
-      <input className="submitbutton" type="submit" value="Submit" />
-      {/* <textarea
-          className="textarea"
-          placeholder="0/200"
-          maxLength="200"
-          onChange={(event) => setValue(event.target.value)}
-          value={value}
-        ></textarea> */}
+      <div className="input-group">
+        <textarea
+          className="form-control"
+          type="text"
+          placeholder="Why would you like the job?"
+          value={pitch}
+          onChange={(event) => setPitch(event.target.value)}
+        />
+      </div>
+
+      <input className="button" type="submit" value="Submit" />
     </form>
   );
 };
