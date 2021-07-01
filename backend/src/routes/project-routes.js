@@ -10,11 +10,7 @@ projectRouter.get('/', projectController.getAll);
 // projectRouter.get('/current', projectController.getCurrent);
 projectRouter.get('/:id', projectController.getById);
 projectRouter.post('/:id/contribute', projectController.findAndUpdate);
-projectRouter.post('/:id/subscribe', projectController.findAndUpdateOrg);
-projectRouter.post(
-  '/:id/contractor',
-  projectController.findAndUpdateContractor
-);
+projectRouter.post('/:id/subscribe', projectController.findAndUpdateContractor);
 projectRouter.put('/:id', projectController.update);
 projectRouter.put(
   '/:id/upload',

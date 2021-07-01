@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/api', router);
-app.use(express.static('public'));
+app.use('/public', express.static('public'));
 
 app.listen(PORT, (err) => {
   if (err) console.error(err);

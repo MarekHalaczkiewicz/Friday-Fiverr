@@ -5,7 +5,6 @@ const fs = require('fs'); //use the file system so we can save files
 
 module.exports = {
   findAndUpdate,
-  findAndUpdateOrg,
   findAndUpdateContractor,
   getAll,
   getById,
@@ -24,23 +23,6 @@ async function findAndUpdate(projectId, projectParam) {
   const updatedProject = await Project.findOneAndUpdate(
     { _id: projectId },
     { $push: { contributors: { userId, amount } } },
-    // { title: 'King in the North' },
-    // If `new` isn't true, `findOneAndUpdate()` will return the
-    // document as it was _before_ it was updated.
-    { new: true }
-  );
-  return await updatedProject;
-}
-
-async function findAndUpdateOrg(projectId, projectParam) {
-  const { name, contact, userId } = projectParam;
-  const updatedProject = await Project.findOneAndUpdate(
-    { _id: projectId },
-    {
-      $push: {
-        organization: { name, contact, account: userId },
-      },
-    },
     // { title: 'King in the North' },
     // If `new` isn't true, `findOneAndUpdate()` will return the
     // document as it was _before_ it was updated.

@@ -4,31 +4,7 @@ import axios from 'axios';
 import UserContext from '../UserContext';
 import { useHistory } from 'react-router-dom';
 
-const WebcamStreamCapture = ({
-  setProjectList,
-  id,
-  name,
-  profileURL,
-  skillset,
-  pitch,
-  setStep,
-}) => {
-  function getFormattedTime() {
-    var today = new Date();
-    var y = today.getFullYear();
-    // JavaScript months are 0-based.
-    var m = today.getMonth() + 1;
-    var d = today.getDate();
-    var h = today.getHours();
-    var mi = today.getMinutes();
-    var s = today.getSeconds();
-    return y + '-' + m + '-' + d + '-' + h + '-' + mi + '-' + s;
-  }
-
-  const fileName = `${id}_${getFormattedTime()}`;
-
-  const history = useHistory();
-  const { user } = useContext(UserContext);
+const WebcamStreamCapture = ({ setRecordedChunks }) => {
   const videoConstraints = {
     width: 320,
     height: 240,
@@ -37,7 +13,7 @@ const WebcamStreamCapture = ({
   const webcamRef = React.useRef(null);
   const mediaRecorderRef = React.useRef(null);
   const [capturing, setCapturing] = React.useState(false);
-  const [recordedChunks, setRecordedChunks] = React.useState([]);
+  // const [recordedChunks, setRecordedChunks] = React.useState([]);
 
   const handleStartCaptureClick = React.useCallback(() => {
     setCapturing(true);
@@ -65,14 +41,14 @@ const WebcamStreamCapture = ({
     setCapturing(false);
   }, [mediaRecorderRef, webcamRef, setCapturing]);
 
-  const uploadVideo = async () => {
+  /* const uploadVideo = async () => {
     if (recordedChunks.length) {
       const blob = new Blob(recordedChunks, {
         type: 'video/webm',
       });
       console.log(blob);
       let formdata = new FormData(); //create a from to of data to upload to the server
-      formdata.append('videoBlob', blob, `${fileName}.webm`); // append the sound blob and the name of the file. third argument will show up on the server as req.file.originalname
+      formdata.append('videoBlob', blob, `${id}_${user.id}.webm`); // append the sound blob and the name of the file. third argument will show up on the server as req.file.originalname
       // Now we can send the blob to a server...
       //build a HTTP POST request
       const httpRequestOptions = {
@@ -99,7 +75,7 @@ const WebcamStreamCapture = ({
       profileURL,
       skillset,
       pitch,
-      videoURL: `${fileName}.webm`,
+      videoURL: `${id}_${user.id}.webm`,
       userID: user.id,
     });
   };
@@ -111,7 +87,7 @@ const WebcamStreamCapture = ({
   };
 
   const redirect = () => {
-    setStep(1);
+    setStep(0);
     window.alert('Thanks for applying to this project!');
     history.push('/');
   };
@@ -121,7 +97,7 @@ const WebcamStreamCapture = ({
     await updateContractor();
     await refreshList();
     redirect();
-  });
+  }); */
 
   /* const handleSubmit = React.useCallback(async () => {
     if (recordedChunks.length) {
@@ -193,9 +169,9 @@ const WebcamStreamCapture = ({
       ) : (
         <button onClick={handleStartCaptureClick}>Start Capture</button>
       )}
-      {recordedChunks.length > 0 && (
+      {/* {recordedChunks.length > 0 && (
         <button onClick={handleVideoSubmit}>Submit</button>
-      )}
+      )} */}
     </>
   );
 };

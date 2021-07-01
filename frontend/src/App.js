@@ -107,7 +107,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <Navbar user={user} setUser={setUser} />
+      <Navbar user={user} setUser={setUser} setModalOpen={setModalOpen} />
       <Switch>
         <Route exact path="/">
           <CarouselContainer />
@@ -155,8 +155,8 @@ function App() {
           <Form setProjectList={setProjectList} />
         </Route>
         <Route path="/my-jobs">
-          {<MyJobs userProjects={userProjects} />}
-          <WebcamStreamCapture setProjectList={setProjectList} />
+          <MyJobs userProjects={userProjects} />
+          {/* <WebcamStreamCapture setProjectList={setProjectList} /> */}
         </Route>
       </Switch>
     </UserContext.Provider>

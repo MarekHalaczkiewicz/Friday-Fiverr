@@ -3,12 +3,18 @@ import '../components/navbar.css';
 import logo from '../Assets/logo.png';
 import { useHistory } from 'react-router-dom';
 
-const Navbar = ({ user, setUser }) => {
+const Navbar = ({ user, setUser, setModalOpen }) => {
   const history = useHistory();
 
   return (
     <nav className="navbar">
-      <div className="nav-logo" onClick={() => history.push('/')}>
+      <div
+        className="nav-logo"
+        onClick={() => {
+          setModalOpen(false);
+          history.push('/');
+        }}
+      >
         <img className="logo" src={logo} />
       </div>
       <ul className="nav-section1">
