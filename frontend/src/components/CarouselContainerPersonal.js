@@ -29,8 +29,8 @@ const CarouselContainerPersonal = (props) => {
       <Carousel.Item style={containerImage}>
         <img className="d-block w-100" src={props.imageUrl} alt="First slide" />
         <Carousel.Caption style={containerStyle}>
-          <h3>Find your local community project</h3>
-          <p>Join today and improve your local community</p>
+          <h3>{props.title}</h3>
+          <p>{props.description}</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

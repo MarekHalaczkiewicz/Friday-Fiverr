@@ -48,7 +48,9 @@ const MyJobs = ({ userProjects, showContractors, setShowContractors }) => {
       {showContractors && (
         <div className="carousel-personal">
           <CarouselContainerPersonal
+            title={userProjects[currentIndex].title}
             imageUrl={userProjects[currentIndex].media[0]}
+            description={userProjects[currentIndex].description}
           />
           <div className="close">
             <button
