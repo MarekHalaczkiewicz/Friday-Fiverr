@@ -8,12 +8,12 @@ const Navbar = ({ user, setUser }) => {
 
   return (
     <nav className="navbar">
-      <div className="nav-logo">
+      <div className="nav-logo" onClick={() => history.push('/')}>
         <img className="logo" src={logo} />
       </div>
       <ul className="nav-section1">
         <li>
-          <a href="#">My jobs</a>
+          <a href="/my-jobs">My jobs</a>
         </li>
         <li>
           <a href="/submit">Create a Project</a>

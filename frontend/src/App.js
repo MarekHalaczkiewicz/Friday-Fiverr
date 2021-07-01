@@ -12,6 +12,7 @@ import axios from 'axios';
 import { LoginPage } from './components/LoginPage.js';
 import SearchBar from './components/SearchBar';
 import Form from './components/SubmitForm';
+import MyJobs from './components/MyJobs';
 
 const projects = [
   {
@@ -94,11 +95,15 @@ function App() {
       project.location && project.location.toLocaleLowerCase().includes(search)
   );
 
+  const userProjects = projectList.filter(
+    (project) => project.contractor && project.contractor.id === user.id
+  );
+
   return (
     <UserContext.Provider value={{ user, setUser }}>
+      <Navbar user={user} setUser={setUser} />
       <Switch>
         <Route exact path="/">
-          <Navbar user={user} setUser={setUser} />
           <CarouselContainer />
           <div className="App">
             <br></br>
@@ -132,13 +137,19 @@ function App() {
           </div>
         </Route>
         <Route path="/subscribe">
-          <Subscription id={projectList.length && projectList[focused]._id} />
+          <Subscription
+            id={projectList.length && projectList[focused]._id}
+            setProjectList={setProjectList}
+          />
         </Route>
         <Route path="/login">
           <LoginPage user={user} setUser={setUser} />
         </Route>
         <Route path="/submit">
           <Form setProjectList={setProjectList} />
+        </Route>
+        <Route path="/my-jobs">
+          <MyJobs />
         </Route>
       </Switch>
     </UserContext.Provider>
