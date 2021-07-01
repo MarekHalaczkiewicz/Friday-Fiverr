@@ -70,8 +70,9 @@
 }
 
 .modalContainerLeft .footerLeft button {
+  height: fit-content;
+  padding: 10px;
   width: 100px;
-  height: 45px;
   margin: 10px;
   border: none;
   background-color: cornflowerblue;
@@ -88,7 +89,7 @@
   cursor: pointer;
   transition: all 0.3s ease 0s;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 17px;
   color: #0d084d;
   text-decoration: none;
   align-content: center;
@@ -101,6 +102,7 @@
 .modalContainerRight {
   color: white;
   width: 50%;
+  height: fit-content;
   border-radius: 12px;
   background-color: #0d084d;
   display: flex;
@@ -145,15 +147,16 @@
 }
 
 .modalContainerRight .footerRight button {
+  height: fit-content;
+  padding: 10px;
   margin-top: 40px;
   width: 150px;
-  height: 45px;
   margin: 10px;
   border: none;
   background-color: #1ba463;
   color: white;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 17px;
   cursor: pointer;
   z-index: 1000;
   cursor: pointer;
