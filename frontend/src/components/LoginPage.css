@@ -1,0 +1,29 @@
+.Login {
+  background-color: #d7d2ff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50vw;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  padding: 9px 25px;
+  background-color: #b2a8fa;
+  border: 2px solid #0d084d;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  font-weight: 600;
+  font-size: 10px;
+  color: #0d084d;
+  text-decoration: none;
+}
