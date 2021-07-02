@@ -4,7 +4,7 @@ import axios from 'axios';
 import UserContext from '../UserContext';
 import { useHistory } from 'react-router-dom';
 
-const WebcamStreamCapture = ({ setProjectList, id }) => {
+const WebcamStreamCapture = ({ setProjectList, id, skillset, pitch }) => {
   function getFormattedTime() {
     var today = new Date();
     var y = today.getFullYear();
@@ -88,7 +88,8 @@ const WebcamStreamCapture = ({ setProjectList, id }) => {
   const updateContractor = async () => {
     await axios.post(`http://localhost:8000/api/projects/${id}/subscribe`, {
       name: `${user.firstName} ${user.lastName}`,
-      skillset: user.skillset,
+      skillset,
+      pitch,
       videoURL: `${fileName}.webm`,
       userID: user.id,
     });
@@ -178,12 +179,18 @@ const WebcamStreamCapture = ({ setProjectList, id }) => {
         videoConstraints={videoConstraints}
       />
       {capturing ? (
-        <button onClick={handleStopCaptureClick}>Stop Capture</button>
+        <button onClick={handleStopCaptureClick} className="button">
+          Stop Capture
+        </button>
       ) : (
-        <button onClick={handleStartCaptureClick}>Start Capture</button>
+        <button onClick={handleStartCaptureClick} className="button">
+          Start Capture
+        </button>
       )}
       {recordedChunks.length > 0 && (
-        <button onClick={handleVideoSubmit}>Submit</button>
+        <button onClick={handleVideoSubmit} className="button">
+          Submit
+        </button>
       )}
     </>
   );

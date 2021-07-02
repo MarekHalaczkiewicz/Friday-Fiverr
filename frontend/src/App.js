@@ -128,6 +128,7 @@ function App() {
                         imageUrl={project.media[0]}
                         body={project.description}
                         location={project.location}
+                        video={project.video}
                       />
                     </div>
                   );

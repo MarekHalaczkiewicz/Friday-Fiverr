@@ -12,9 +12,13 @@
 .card-container:hover {
   box-shadow: 0px 0px 15px 0px;
 }
+.image-container {
+  height: 217px;
+}
+
 .image-container img {
   overflow: hidden;
-  height: 200px;
+  height: 210px !important;
 }
 .card-title {
   font-weight: bold;

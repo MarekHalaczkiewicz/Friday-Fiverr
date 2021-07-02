@@ -6,7 +6,7 @@ import UserContext from '../UserContext';
 import WebcamStreamCapture from './WebcamStreamCapture';
 
 export const Subscription = ({ id, setProjectList }) => {
-  // const [step, setStep] = useState(1);
+  const [step, setStep] = useState(1);
   // const { user } = useContext(UserContext);
   // const [name, setName] = useState('');
   // const [url, setUrl] = useState('');
@@ -40,30 +40,46 @@ export const Subscription = ({ id, setProjectList }) => {
   //   history.push('/');
   // }
   return (
-    <form className="formcontainer" /* onSubmit={submitForm} */>
-      <h1 className="formcontainertitle">I want to work on this project</h1>
-
-      <div className="input-group">
-        <textarea
-          className="form-control"
-          type="text"
-          placeholder="Name project relevant skills"
-          value={skillset}
-          onChange={(event) => setSkillset(event.target.value)}
-        />
-      </div>
-      <div className="input-group">
-        <textarea
-          className="form-control"
-          type="text"
-          placeholder="Why would you like the job?"
-          value={pitch}
-          onChange={(event) => setPitch(event.target.value)}
-        />
-      </div>
-      <WebcamStreamCapture id={id} setProjectList={setProjectList} />
-      <input className="button" type="submit" value="Submit" />
-    </form>
+    <>
+      {step === 1 && (
+        <div className="formcontainer" /* onSubmit={submitForm} */>
+          <h1 className="formcontainertitle">I want to work on this project</h1>
+          <div className="input-group">
+            <textarea
+              className="form-control"
+              type="text"
+              placeholder="Name project relevant skills"
+              value={skillset}
+              onChange={(event) => setSkillset(event.target.value)}
+            />
+          </div>
+          <div className="input-group">
+            <textarea
+              className="form-control"
+              type="text"
+              placeholder="Why would you like the job?"
+              value={pitch}
+              onChange={(event) => setPitch(event.target.value)}
+            />
+          </div>
+          <button className="button" onClick={() => setStep(2)}>
+            Next
+          </button>
+          {/* <input className="button" type="submit" value="Submit" /> */}
+        </div>
+      )}
+      {step === 2 && (
+        <div className="formcontainer">
+          <WebcamStreamCapture
+            id={id}
+            setProjectList={setProjectList}
+            skillset={skillset}
+            pitch={pitch}
+          />
+        </div>
+      )}
+      ;
+    </>
   );
 };
 

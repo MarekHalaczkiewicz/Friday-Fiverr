@@ -32,9 +32,6 @@ const Navbar = ({
         <li>
           <a href="/submit">Create a Project</a>
         </li>
-        <li>
-          <a href="#">{user.loggedIn && user.username}</a>
-        </li>
       </ul>
       <div className="nav-section2">
         {user.loggedIn ? (

@@ -1,9 +1,9 @@
 import ReactPlayer from 'react-player';
 import './VideoCard.css';
-const VideoCard = ({ name, skillset, imageUrl }) => {
+const VideoCard = ({ name, skillset, imageUrl, pitch }) => {
   return (
     <div className="video-card-container">
-      <div className="image-container">
+      <div className="image-container-video">
         <ReactPlayer
           url={`http://localhost:8000/public/${imageUrl}`}
           controls={true}
@@ -11,10 +11,10 @@ const VideoCard = ({ name, skillset, imageUrl }) => {
           height="300"
         />
       </div>
-      <div className="card-content-personal">
+      <div className="card-content-personal-video">
         <h3 className="card-title"> {name}</h3>
+        <p>{pitch}</p>
         <p className="card-title">
-          {' '}
           {skillset &&
             skillset
               .split(' ')

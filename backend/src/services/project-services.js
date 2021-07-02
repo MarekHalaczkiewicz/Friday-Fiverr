@@ -32,12 +32,12 @@ async function findAndUpdate(projectId, projectParam) {
 }
 
 async function findAndUpdateContractor(projectId, projectParam) {
-  const { name, skillset, videoURL, userID } = projectParam;
+  const { name, skillset, pitch, videoURL, userID } = projectParam;
   const updatedProject = await Project.findOneAndUpdate(
     { _id: projectId },
     {
       $push: {
-        contractor: { name, skillset, videoURL, userID },
+        contractor: { name, skillset, videoURL, pitch, userID },
       },
     },
     // { title: 'King in the North' },

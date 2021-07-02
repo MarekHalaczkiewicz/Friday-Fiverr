@@ -72,6 +72,7 @@ const MyJobs = ({ userProjects, showContractors, setShowContractors }) => {
                   index={i}
                   name={c.name}
                   skillset={c.skillset}
+                  pitch={c.pitch}
                 />
               );
             })}

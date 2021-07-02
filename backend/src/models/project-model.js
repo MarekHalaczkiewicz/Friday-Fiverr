@@ -68,6 +68,9 @@ const schema = new Schema({
       videoURL: {
         type: String,
       },
+      pitch: {
+        type: String,
+      },
       userId: {
         type: String,
       },

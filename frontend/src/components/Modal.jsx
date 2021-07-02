@@ -4,6 +4,7 @@ import UserContext from '../UserContext';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
+import ReactPlayer from 'react-player';
 
 function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
   const history = useHistory();
@@ -15,7 +16,7 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
     description,
     goal,
     skills,
-    tags,
+    video,
     location,
     organization,
   } = project;
@@ -67,9 +68,20 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
           <div className="title">
             <h2>{title}</h2>
           </div>
-          <div className="media">
-            <img className="img" src={media} alt="Project" />
-          </div>
+          {video ? (
+            <ReactPlayer
+              url={`http://localhost:8000/public/${video}`}
+              controls={false}
+              height="40%"
+              muted={true}
+              playing={true}
+              loop={true}
+            />
+          ) : (
+            <div className="media">
+              <img className="img" src={media} alt="Project" />
+            </div>
+          )}
           <div className="bodyLeft">
             <p>{description}</p>
             <p>
