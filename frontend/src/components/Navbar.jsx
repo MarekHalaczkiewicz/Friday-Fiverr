@@ -15,7 +15,8 @@ const Navbar = ({
   const customClassName =
     customClass && showContractors ? 'custom-navbar' : 'navbar';
   return (
-    <nav className={customClassName}>
+    // <nav className={customClassName}>
+    <nav className="navbar">
       <div
         className="nav-logo"
         onClick={() => {

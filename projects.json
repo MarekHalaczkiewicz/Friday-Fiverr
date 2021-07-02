@@ -3,7 +3,8 @@
   "media": [
     "https://media.4-paws.org/a/9/b/d/a9bd2520c2a7c941680bbfc56182ed5615e7cd3c/VIER%20PFOTEN_2016-09-18_081-1927x1333.jpg"
   ],
-  "description": "Donate now to fund animal rescue organizations, provide affordable equipment for wildlife search and rescue, and support adoptable cats, dogs, and other pets. We also looking for people, who can create a short video for us, to be played in local tv",
+  "video": "dog shelter.mp4",
+  "description": "Donate now to fund animal rescue organizations, provide affordable equipment for wildlife search and rescue, and support adoptable cats, dogs, and other pets. We also looking for people, who can create a short video for us.",
   "goal": 500,
   "contributions": [],
   "skills": ["Video Editing", "Short video Ads", "Camera"],
@@ -11,14 +12,15 @@
   "location": "Berlin",
   "organization": {
     "name": "Dog Shelter Berlin",
-    "contact": "pappp",
-    "account": "aslk;dfjals;fj"
+    "contact": "animal.shelter@berlin.de",
+    "account": "60de11ddb2771e183fadb5a2"
   },
 
   "title": "Web-page for local orphanage ",
   "media": [
-    "https://upload.wikimedia.org/wikipedia/commons/0/06/St._John%27s_Orphanage_in_2015.jpg"
+    "https://static.timesofisrael.com/www/uploads/2021/01/air3.jpg.png"
   ],
+  "video": "orphanage.mp4",
   "description": "Help with the creation of web-page for a local orphanages. Donate, or come and share your skills with kids.",
   "goal": 450,
   "contributions": [],
@@ -27,14 +29,15 @@
   "location": "Berlin",
   "organization": {
     "name": "Save the Children Deutschland",
-    "contact": "pappp",
-    "account": "aslk;dfjals;fj"
+    "contact": "orphans@germany.de",
+    "account": "60de1210b2771e183fadb5a5"
   },
 
   "title": "Dancing for kids",
   "media": [
-    "https://upload.wikimedia.org/wikipedia/commons/3/38/Two_dancers.jpg"
+    "https://cms.qz.com/wp-content/uploads/2019/12/The-power-of-dance-e1575906582595.jpg?quality=75&strip=all&w=1600&h=900&crop=1"
   ],
+  "video": "dancing kids.mp4",
   "description": "For kid's day this year, we want to give the children the opportunity to see, and experience dancing of various music genres and countries. If you can't donate, maybe You are a dancer and give our angels a show of your own.",
   "goal": 250,
   "contributions": [],
@@ -43,7 +46,24 @@
   "location": "Wedding",
   "organization": {
     "name": "Dance for The Kids",
-    "contact": "pappp",
-    "account": "aslk;dfjals;fj"
+    "contact": "dance@berlin.de",
+    "account": "60de11ddb2771e183fadb5a2"
+  },
+
+  "title": "Let's create a website for local library ",
+  "media": [
+    "https://bookbub-res.cloudinary.com/image/upload/v1570655768/blog/you-can-sleepover-in-this-130-year-old-library.jpg"
+  ],
+  "video": "fiver local_library.mp4",
+  "description": "The local library wants to create a web page to promote and help to save the books. You can donate money to help the cause, or simply use your skills and talents to support us.",
+  "goal": 670,
+  "contributors": [],
+  "skills": ["poster creation", "graphic design", "art design"],
+  "tags": ["design", "poster", "charity"],
+  "location": "Kreuzberg",
+  "organization": {
+    "name": "Help The Poor",
+    "contact": "library@grmany.de",
+    "account": "60de11ddb2771e183fadb5a2"
   }
 }

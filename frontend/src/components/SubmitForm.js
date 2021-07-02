@@ -8,11 +8,11 @@ function Form({ setProjectList }) {
   const { user } = useContext(UserContext);
   const [projectName, setProjectName] = useState('');
   const [projectMedia, setProjectMedia] = useState('');
+  const [projectVideo, setProjectVideo] = useState('');
   const [projectDescription, setProjectDescription] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
   const [location, setLocation] = useState('');
-  const [contributors, setContributors] = useState('');
+  // const [contributors, setContributors] = useState('');
   const [skills, setSkills] = useState('');
   const [organization, setOrganization] = useState('');
   const [goal, setGoal] = useState('');
@@ -23,6 +23,7 @@ function Form({ setProjectList }) {
       .post('http://localhost:8000/api/projects/', {
         title: projectName,
         media: projectMedia,
+        video: projectVideo,
         description: projectDescription,
         organization: { name: organization, contact: email, account: user.id },
         location,
@@ -57,9 +58,20 @@ function Form({ setProjectList }) {
           className="form-control"
           value={projectMedia}
           onChange={(e) => setProjectMedia(e.target.value)}
-          placeholder="Project Media"
+          placeholder="Project Image"
           type="URL"
           name="projectMedia"
+          required
+        />
+      </div>
+      <div className="input-group">
+        <textarea
+          className="form-control"
+          value={projectVideo}
+          onChange={(e) => setProjectVideo(e.target.value)}
+          placeholder="Project Video"
+          type="text"
+          name="phone"
           required
         />
       </div>
@@ -85,17 +97,7 @@ function Form({ setProjectList }) {
           required
         />
       </div>
-      <div className="input-group">
-        <textarea
-          className="form-control"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          placeholder="Contact number"
-          type="text"
-          name="phone"
-          required
-        />
-      </div>
+
       <div className="input-group">
         <textarea
           className="form-control"
