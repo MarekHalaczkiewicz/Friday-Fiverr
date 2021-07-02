@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import './cardJob.css';
 import { useHistory } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
+import ReactPlayer from 'react-player';
 
 function CardJob({
   index,
   title,
+  video,
   imageUrl,
   location,
   setCurrentIndex,
@@ -21,9 +23,21 @@ function CardJob({
 
   return (
     <div className="card-container">
-      <div className="image-container">
-        <img src={imageUrl} alt="" />
-      </div>
+      {video && video ? (
+        <ReactPlayer
+          url={`http://localhost:8000/public/${video}`}
+          controls={false}
+          width="280"
+          height="212"
+          muted={true}
+          playing={true}
+          loop={true}
+        />
+      ) : (
+        <div className="image-container">
+          <img src={imageUrl} alt="" />
+        </div>
+      )}
       <div className="card-content-personal">
         <div>
           <h3 className="card-title"> {title}</h3>
@@ -36,7 +50,7 @@ function CardJob({
       />
       <div className="location">
         <strong>
-          <p>Location: {location}</p>
+          <p>Location: 🇩🇪{location}</p>
         </strong>
       </div>
       <div className="button-container">

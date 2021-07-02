@@ -85,11 +85,11 @@ function Modal({ index, setModalOpen, project, projectList, setProjectList }) {
           <div className="bodyLeft">
             <p>{description}</p>
             <p>
-              <strong>organization: </strong>
+              <strong>Organization: </strong>
               {organization.name}
             </p>
             <p>
-              <strong>Location: </strong>
+              <strong>Location: 🇩🇪</strong>
               {location}
             </p>
           </div>

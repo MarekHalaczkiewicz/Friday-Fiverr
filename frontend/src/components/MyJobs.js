@@ -9,7 +9,7 @@ import CarouselContainerPersonal from './CarouselContainerPersonal';
 
 const MyJobs = ({ userProjects, showContractors, setShowContractors }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  console.log(userProjects);
   return (
     <div className="personal-jobs">
       {!showContractors && (
@@ -23,6 +23,7 @@ const MyJobs = ({ userProjects, showContractors, setShowContractors }) => {
                 location={project.location}
                 contributors={project.contributors}
                 goal={project.goal}
+                video={project.video}
                 setCurrentIndex={setCurrentIndex}
                 setShowContractors={setShowContractors}
                 index={i}

@@ -22,8 +22,8 @@ const WebcamStreamCapture = ({ setProjectList, id, skillset, pitch }) => {
   const history = useHistory();
   const { user } = useContext(UserContext);
   const videoConstraints = {
-    width: 320,
-    height: 240,
+    width: 480,
+    height: 360,
     facingMode: 'user',
   };
   const webcamRef = React.useRef(null);

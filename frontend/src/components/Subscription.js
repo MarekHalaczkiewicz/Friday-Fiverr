@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import UserContext from '../UserContext';
 import WebcamStreamCapture from './WebcamStreamCapture';
 
-export const Subscription = ({ id, setProjectList }) => {
+export const Subscription = ({ id, setProjectList, project }) => {
   const [step, setStep] = useState(1);
   // const { user } = useContext(UserContext);
   // const [name, setName] = useState('');
@@ -42,8 +42,26 @@ export const Subscription = ({ id, setProjectList }) => {
   return (
     <>
       {step === 1 && (
-        <div className="formcontainer" /* onSubmit={submitForm} */>
-          <h1 className="formcontainertitle">I want to work on this project</h1>
+        <div
+          className="formcontainer"
+          style={{
+            height: '91vh',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            backgroundImage:
+              'linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.8)), url(' +
+              project.media[0] +
+              ')',
+            justifyContent: 'space-around',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            color: 'white',
+          }} /* onSubmit={submitForm} */
+        >
+          <h1>{project.title}</h1>
+          <p>Location: 🇩🇪 {project.location}</p>
+          <p className="formcontainertitle">I want to work on this project</p>
           <div className="input-group">
             <textarea
               className="form-control"
@@ -69,7 +87,23 @@ export const Subscription = ({ id, setProjectList }) => {
         </div>
       )}
       {step === 2 && (
-        <div className="formcontainer">
+        <div
+          className="formcontainer"
+          style={{
+            height: '91vh',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            backgroundImage:
+              'linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.8)), url(' +
+              project.media[0] +
+              ')',
+            justifyContent: 'space-around',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            color: 'white',
+          }}
+        >
           <WebcamStreamCapture
             id={id}
             setProjectList={setProjectList}

@@ -39,7 +39,7 @@ function Card({
       </div>
       <div className="location">
         <strong>
-          <p>Location: {location}</p>
+          <p>{`Location: 🇩🇪 ${location}`}</p>
         </strong>
       </div>
       <div className="donation-progress"></div>

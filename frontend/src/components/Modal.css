@@ -22,7 +22,7 @@
   display: flex;
   justify-content: row;
   background-color: whitesmoke;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 .modalContainerLeft {

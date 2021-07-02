@@ -149,6 +149,7 @@ function App() {
           <Subscription
             id={projectList.length && projectList[focused]._id}
             setProjectList={setProjectList}
+            project={projectList[focused]}
           />
         </Route>
         <Route path="/login">
@@ -172,7 +173,6 @@ function App() {
             showContractors={showContractors}
             setShowContractors={setShowContractors}
           />
-          {/* <WebcamStreamCapture setProjectList={setProjectList} /> */}
         </Route>
       </Switch>
     </UserContext.Provider>

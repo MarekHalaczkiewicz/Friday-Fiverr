@@ -21,6 +21,32 @@
   padding-left: 20%;
   padding-right: 20%;
 }
+
+.formcontainer-apply {
+  display: flex;
+  flex-direction: column;
+  /* background: #0d084d; */
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font: 20px helvetica, sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  height: 100vh;
+  width: 33%;
+  display: fke;
+  display: flex;
+  flex: dire;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  padding-left: 20%;
+  padding-right: 20%;
+  background-image: 'https://upload.wikimedia.org/wikipedia/commons/0/06/St._John%27s_Orphanage_in_2015.jpg';
+}
+
 .formcontainer .button {
   width: 20%;
   margin: 10px;
@@ -114,7 +140,7 @@
   display: block;
   color: #1a6fc4;
   font-size: 17px;
-  font-family: "Oxygen", sans-serif;
+  font-family: 'Oxygen', sans-serif;
   transition: top 0.1s ease-in-out;
   margin: 30px;
   height: 80px;
@@ -163,5 +189,5 @@
   justify-content: flex-end;
   font-size: 22px;
   color: #e0e0e0;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
